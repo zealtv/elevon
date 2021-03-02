@@ -1,0 +1,208 @@
+#N canvas 107 47 1339 693 10;
+#X obj 12 14 cnv 15 190 166 empty empty empty 10 10 0 14 #c4fcfc #fcfcfc
+0;
+#X obj 38 98 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
+#98fcfc #000000 0;
+#X obj 40 20 hsl 128 15 0 1 0 0 empty \$0position0 empty -2 -8 0 10
+#fc9898 #000000 #000000 0 1;
+#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #98b8fc
+#000000 #000000 0 1;
+#X obj 180 20 bng 15 250 50 0 \$0button0 empty empty 17 7 0 10 #fc9898
+#fcfcfc #000000;
+#X obj 180 40 bng 15 250 50 0 \$0button1 empty empty 17 7 0 10 #fce498
+#fcfcfc #000000;
+#X obj 180 60 bng 15 250 50 0 \$0button2 empty empty 17 7 0 10 #ccfc98
+#fcfcfc #000000;
+#X obj 180 80 bng 15 250 50 0 \$0button3 empty empty 17 7 0 10 #98fcb0
+#fcfcfc #000000;
+#X obj 180 100 bng 15 250 50 0 \$0button4 empty empty 17 7 0 10 #98fcfc
+#fcfcfc #000000;
+#X obj 180 120 bng 15 250 50 0 \$0button5 empty empty 17 7 0 10 #98b0fc
+#fcfcfc #000000;
+#X obj 40 40 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fce498
+#000000 #000000 0 1;
+#X obj 40 60 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #ccfc98
+#000000 #000000 0 1;
+#X obj 40 80 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98fcb0
+#000000 #000000 0 1;
+#X obj 40 100 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98fcfc
+#000000 #000000 0 1;
+#X obj 40 120 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98b0fc
+#000000 #000000 0 1;
+#X msg 670 229 pos \$1 \$2;
+#X obj 670 202 pack f f, f 15;
+#X floatatom 757 110 5 0 0 0 - - -, f 5;
+#X obj 757 142 * 20, f 5;
+#X obj 40 140 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #cc98fc
+#000000 #000000 0 1;
+#X obj 180 140 bng 15 250 50 0 \$0button6 empty empty 17 7 0 10 #cc98fc
+#fcfcfc #000000;
+#X obj 40 160 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fc98e4
+#000000 #000000 0 1;
+#X obj 180 160 bng 15 250 50 0 \$0button7 empty empty 17 7 0 10 #fc98e4
+#fcfcfc #000000;
+#X obj 670 61 i;
+#X obj 670 128 t b a;
+#X obj 670 256 s \$0highlight-cnv;
+#X obj 670 34 * 7.9;
+#X obj 553 172 / 8;
+#X obj 334 17 inlet hue;
+#X obj 25 397 r \$0button0;
+#X obj 166 397 r \$0button1;
+#X obj 311 397 r \$0button2;
+#X obj 444 397 r \$0button3;
+#X obj 592 397 r \$0button4;
+#X obj 752 397 r \$0button5;
+#X obj 904 397 r \$0button6;
+#X obj 1044 397 r \$0button7;
+#X obj 757 173 + 18;
+#X msg 670 166 38;
+#X text 219 18 40 20;
+#X text 219 43 40 40;
+#X text 259 17 180 20;
+#X obj 1194 504 r \$0notes;
+#X obj 1193 543 outlet notes;
+#X obj 336 197 util-rainbowmaker;
+#X obj 554 202 util-rainbowmaker;
+#X obj 336 222 s to\$0hue, f 14;
+#X obj 334 135 s to\$0hue, f 14;
+#X obj 336 172 r \$0hue;
+#X obj 99 466 r \$0hue;
+#X msg 99 494 hue \$1;
+#X obj 670 7 r \$0hue;
+#X text 536 61 stave highlighting 👉;
+#X obj 25 558 outlet stave0;
+#X obj 240 462 r \$0hue;
+#X msg 240 490 hue \$1;
+#X obj 166 554 outlet stave1;
+#X obj 384 462 r \$0hue;
+#X msg 384 490 hue \$1;
+#X obj 310 554 outlet stave2;
+#X obj 518 461 r \$0hue;
+#X msg 518 489 hue \$1;
+#X obj 444 553 outlet stave3;
+#X obj 666 457 r \$0hue;
+#X msg 666 485 hue \$1;
+#X obj 592 549 outlet stave4;
+#X obj 826 456 r \$0hue;
+#X msg 826 484 hue \$1;
+#X obj 752 548 outlet stave5;
+#X obj 978 454 r \$0hue;
+#X msg 978 482 hue \$1;
+#X obj 904 546 outlet stave6;
+#X obj 1118 452 r \$0hue;
+#X msg 1118 480 hue \$1;
+#X obj 1044 544 outlet stave6;
+#X text 20 201 📝todo: dynamic number of staves;
+#N canvas 0 0 450 300 fmod 0;
+#X obj 120 -27 inlet;
+#X obj 120 192 outlet;
+#X obj 178 -27 inlet;
+#X obj 120 1 / \$1;
+#X obj 120 167 * \$1;
+#X obj 150 59 int;
+#X obj 120 33 t f f;
+#X obj 120 85 -;
+#X obj 120 112 moses 0;
+#X obj 120 140 + 1;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 0 4 1;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 6 1 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 8 1 4 0;
+#X connect 9 0 4 0;
+#X restore 334 100 pd fmod;
+#X msg 373 76 1;
+#X obj 373 46 loadbang;
+#X obj 24 373 s \$0button0;
+#X obj 165 373 s \$0button1;
+#X obj 310 373 s \$0button2;
+#X obj 443 373 s \$0button3;
+#X obj 591 373 s \$0button4;
+#X obj 751 373 s \$0button5;
+#X obj 903 373 s \$0button6;
+#X obj 1043 373 s \$0button7;
+#X obj 43 429 loadbang;
+#X obj 183 424 loadbang;
+#X obj 324 423 loadbang;
+#X obj 464 425 loadbang;
+#X obj 620 424 loadbang;
+#X obj 770 419 loadbang;
+#X obj 921 418 loadbang;
+#X obj 1061 420 loadbang;
+#X msg 25 467 stave 0 \, id \$0 \, ready, f 9;
+#X msg 166 463 stave 1 \, id \$0 \, ready, f 9;
+#X msg 310 463 stave 2 \, id \$0 \, ready, f 9;
+#X msg 444 462 stave 3 \, id \$0 \, ready, f 9;
+#X msg 592 458 stave 4 \, id \$0 \, ready, f 9;
+#X msg 752 457 stave 5 \, id \$0 \, ready, f 9;
+#X msg 904 455 stave 6 \, id \$0 \, ready, f 9;
+#X msg 1044 453 stave 7 \, id \$0 \, ready, f 9;
+#X connect 15 0 25 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 37 0;
+#X connect 23 0 24 0;
+#X connect 23 0 27 0;
+#X connect 24 0 38 0;
+#X connect 24 1 17 0;
+#X connect 26 0 23 0;
+#X connect 27 0 45 0;
+#X connect 28 0 76 0;
+#X connect 29 0 95 0;
+#X connect 30 0 96 0;
+#X connect 31 0 97 0;
+#X connect 32 0 98 0;
+#X connect 33 0 99 0;
+#X connect 34 0 100 0;
+#X connect 35 0 101 0;
+#X connect 36 0 102 0;
+#X connect 37 0 16 1;
+#X connect 38 0 16 0;
+#X connect 42 0 43 0;
+#X connect 44 0 46 0;
+#X connect 45 0 25 0;
+#X connect 48 0 44 0;
+#X connect 49 0 50 0;
+#X connect 50 0 53 0;
+#X connect 51 0 26 0;
+#X connect 54 0 55 0;
+#X connect 55 0 56 0;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 60 0 61 0;
+#X connect 61 0 62 0;
+#X connect 63 0 64 0;
+#X connect 64 0 65 0;
+#X connect 66 0 67 0;
+#X connect 67 0 68 0;
+#X connect 69 0 70 0;
+#X connect 70 0 71 0;
+#X connect 72 0 73 0;
+#X connect 73 0 74 0;
+#X connect 76 0 47 0;
+#X connect 77 0 76 1;
+#X connect 78 0 77 0;
+#X connect 87 0 95 0;
+#X connect 88 0 96 0;
+#X connect 89 0 97 0;
+#X connect 90 0 98 0;
+#X connect 91 0 99 0;
+#X connect 92 0 100 0;
+#X connect 93 0 101 0;
+#X connect 94 0 102 0;
+#X connect 95 0 53 0;
+#X connect 96 0 56 0;
+#X connect 97 0 59 0;
+#X connect 98 0 62 0;
+#X connect 99 0 65 0;
+#X connect 100 0 68 0;
+#X connect 101 0 71 0;
+#X connect 102 0 74 0;
+#X coords 0 -1 1 1 194 174 2 10 10;

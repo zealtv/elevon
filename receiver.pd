@@ -1,0 +1,77 @@
+#N canvas 411 94 849 482 10;
+#X declare -lib cyclone;
+#X obj 15 15 cnv 15 406 131 empty empty empty 10 10 0 14 -204800 -262144
+0;
+#X obj 18 108 cnv 15 30 32 empty empty empty 20 12 0 14 -260129 -66577
+0;
+#X obj 318 20 cnv 15 30 120 empty empty empty 20 12 0 14 -260129 -66577
+0;
+#X obj 218 20 cnv 15 30 120 empty empty empty 20 12 0 14 -260129 -66577
+0;
+#X obj 118 20 cnv 15 30 120 empty empty empty 20 12 0 14 -260129 -66577
+0;
+#X obj 570 356 send, f 10;
+#X obj 570 310 cyclone/zl rev;
+#X obj 570 333 unpack f s;
+#X floatatom 50 108 10 0 0 0 t t -;
+#X floatatom 50 124 10 0 0 0 sync sync -;
+#X floatatom 150 92 10 0 0 0 px px -;
+#X floatatom 150 108 10 0 0 0 py py -;
+#X floatatom 150 124 10 0 0 0 pz pz -;
+#X floatatom 150 20 10 0 0 0 lat lat -;
+#X floatatom 150 36 10 0 0 0 lon lon -;
+#X floatatom 150 52 10 0 0 0 alt alt -;
+#X floatatom 150 68 10 0 0 0 h h -;
+#X floatatom 350 20 10 0 0 0 rx rx -;
+#X floatatom 350 36 10 0 0 0 ry ry -;
+#X floatatom 350 52 10 0 0 0 rz rz -;
+#X floatatom 350 68 10 0 0 0 rw rw -;
+#X floatatom 250 20 10 0 0 0 vx vx -;
+#X floatatom 250 36 10 0 0 0 vy vy -;
+#X floatatom 250 52 10 0 0 0 vz vz -;
+#X floatatom 250 92 10 0 0 0 ax ax -;
+#X floatatom 250 108 10 0 0 0 ay ay -;
+#X floatatom 250 124 10 0 0 0 az az -;
+#X floatatom 350 92 10 0 0 0 rvx rvx -;
+#X floatatom 350 108 10 0 0 0 rvy rvy -;
+#X floatatom 350 124 10 0 0 0 rvz rvz -;
+#X obj 22 88 cnv 3 80 3 empty empty -=ELEVON=- -2 -2 0 14 -262144 -260129
+0;
+#X obj 570 57 netreceive -u -b;
+#X msg 570 34 listen 4813;
+#X obj 570 80 oscparse;
+#X obj 570 126 route telemetry;
+#X obj 570 103 route list;
+#X obj 570 11 loadbang;
+#X obj 570 241 zl nth;
+#X obj 570 172 unpack, f 8;
+#X obj 570 195 + 1;
+#X msg 456 126 t sync px py pz lat lon alt rx ry rz rw h vx vy vz ax
+ay az rvx rvy rvz, f 17;
+#X obj 456 103 loadbang;
+#X obj 570 264 pack s f;
+#X obj 570 287 route list;
+#X obj 570 218 t b f, f 6;
+#X obj 570 149 listfunnel;
+#X obj 650 11 declare -lib cyclone;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 7 1 5 1;
+#X connect 31 0 33 0;
+#X connect 32 0 31 0;
+#X connect 33 0 35 0;
+#X connect 34 0 45 0;
+#X connect 35 0 34 0;
+#X connect 36 0 32 0;
+#X connect 37 0 42 0;
+#X connect 38 0 39 0;
+#X connect 38 1 42 1;
+#X connect 39 0 44 0;
+#X connect 40 0 37 0;
+#X connect 41 0 40 0;
+#X connect 42 0 43 0;
+#X connect 43 0 6 0;
+#X connect 44 0 37 0;
+#X connect 44 1 37 1;
+#X connect 45 0 38 0;
+#X coords 0 -1 1 1 414 140 2 10 10;
