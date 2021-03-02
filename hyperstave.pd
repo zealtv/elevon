@@ -1,12 +1,12 @@
-#N canvas 107 47 1339 693 10;
-#X obj 12 14 cnv 15 190 166 empty empty empty 10 10 0 14 #c4fcfc #fcfcfc
+#N canvas 104 44 1342 698 10;
+#X obj 12 14 cnv 15 190 166 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
-#X obj 38 98 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
-#98fcfc #000000 0;
+#X obj 38 118 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
+#f0f0f0 #000000 0;
 #X obj 40 20 hsl 128 15 0 1 0 0 empty \$0position0 empty -2 -8 0 10
-#fc9898 #000000 #000000 0 1;
-#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #98b8fc
-#000000 #000000 0 1;
+#fc9898 #000000 #000000 5715 1;
+#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #99a9ff
+#000000 #000000 5380 1;
 #X obj 180 20 bng 15 250 50 0 \$0button0 empty empty 17 7 0 10 #fc9898
 #fcfcfc #000000;
 #X obj 180 40 bng 15 250 50 0 \$0button1 empty empty 17 7 0 10 #fce498
@@ -29,10 +29,10 @@
 #000000 #000000 0 1;
 #X obj 40 120 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98b0fc
 #000000 #000000 0 1;
-#X msg 670 229 pos \$1 \$2;
-#X obj 670 202 pack f f, f 15;
-#X floatatom 757 110 5 0 0 0 - - -, f 5;
-#X obj 757 142 * 20, f 5;
+#X msg 670 239 pos \$1 \$2;
+#X obj 670 212 pack f f, f 15;
+#X floatatom 757 120 5 0 0 0 - - -, f 5;
+#X obj 757 152 * 20, f 5;
 #X obj 40 140 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #cc98fc
 #000000 #000000 0 1;
 #X obj 180 140 bng 15 250 50 0 \$0button6 empty empty 17 7 0 10 #cc98fc
@@ -41,11 +41,11 @@
 #000000 #000000 0 1;
 #X obj 180 160 bng 15 250 50 0 \$0button7 empty empty 17 7 0 10 #fc98e4
 #fcfcfc #000000;
-#X obj 670 61 i;
-#X obj 670 128 t b a;
-#X obj 670 256 s \$0highlight-cnv;
-#X obj 670 34 * 7.9;
-#X obj 553 172 / 8;
+#X obj 670 71 i;
+#X obj 670 138 t b a;
+#X obj 670 266 s \$0highlight-cnv;
+#X obj 670 44 * 7.9;
+#X obj 554 180 / 8;
 #X obj 334 17 inlet hue;
 #X obj 25 397 r \$0button0;
 #X obj 166 397 r \$0button1;
@@ -55,22 +55,22 @@
 #X obj 752 397 r \$0button5;
 #X obj 904 397 r \$0button6;
 #X obj 1044 397 r \$0button7;
-#X obj 757 173 + 18;
-#X msg 670 166 38;
+#X obj 757 183 + 18;
+#X msg 670 176 38;
 #X text 219 18 40 20;
 #X text 219 43 40 40;
 #X text 259 17 180 20;
 #X obj 1194 504 r \$0notes;
 #X obj 1193 543 outlet notes;
 #X obj 336 197 util-rainbowmaker;
-#X obj 554 202 util-rainbowmaker;
+#X obj 554 212 util-rainbowmaker;
 #X obj 336 222 s to\$0hue, f 14;
 #X obj 334 135 s to\$0hue, f 14;
 #X obj 336 172 r \$0hue;
 #X obj 99 466 r \$0hue;
 #X msg 99 494 hue \$1;
-#X obj 670 7 r \$0hue;
-#X text 536 61 stave highlighting 👉;
+#X obj 670 17 r \$0hue;
+#X text 468 103 stave highlighting 👉;
 #X obj 25 558 outlet stave0;
 #X obj 240 462 r \$0hue;
 #X msg 240 490 hue \$1;
@@ -167,7 +167,6 @@
 #X connect 38 0 16 0;
 #X connect 42 0 43 0;
 #X connect 44 0 46 0;
-#X connect 45 0 25 0;
 #X connect 48 0 44 0;
 #X connect 49 0 50 0;
 #X connect 50 0 53 0;

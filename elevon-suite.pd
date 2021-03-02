@@ -1,35 +1,37 @@
-#N canvas 381 74 741 754 12;
+#N canvas 60 14 501 694 12;
 #X obj 13 17 receiver;
 #X obj 22 279 hyperstave;
-#X floatatom 22 224 15 0 0 0 - - -;
+#X floatatom 22 224 15 0 0 0 - - -, f 15;
 #X obj 22 249 / 100;
-#X obj 322 603 makenote;
+#X obj 209 610 makenote;
 #X text 20 165 🗺👇 map position (or other things) to hue, f 17
 ;
-#X obj 309 480 print notes;
-#X text 304 509 we probably want to send note/velocity/duration tuples
+#X obj 209 488 print notes;
+#X text 209 517 we probably want to send note/velocity/duration tuples
 from here 👆 to here 👇, f 22;
-#N canvas 1276 103 423 492 stave0 1;
+#N canvas 500 81 395 531 stave0 0;
 #X obj 42 21 inlet;
 #X obj 75 56 r \$0position;
-#X obj 126 392 s \$0position;
-#X floatatom 126 358 17 0 0 0 - - -;
+#X obj 243 394 s \$0position;
+#X floatatom 243 343 17 0 0 0 - - -, f 17;
 #X obj 109 90 r \$0notes;
-#X obj 40 395 s \$0notes;
-#X floatatom 42 155 5 0 0 0 - - -;
+#X obj 30 395 s \$0notes;
+#X floatatom 42 155 5 0 0 0 - - -, f 5;
 #X text 89 156 < distance;
 #X obj 42 118 stave-link;
-#X text 126 418 this send isn't working in vanilla, f 19;
-#X obj 233 314 s 0position0;
+#X text 243 420 this send isn't working in vanilla, f 19;
+#X obj 243 368 expr fmod($f1 \, 1.);
+#X text 27 353 send note/velocity/duration can send note offs to flush
+, f 29;
 #X connect 0 0 8 0;
 #X connect 1 0 8 1;
-#X connect 3 0 2 0;
 #X connect 3 0 10 0;
 #X connect 4 0 8 2;
 #X connect 8 0 6 0;
+#X connect 10 0 2 0;
 #X restore 22 488 pd stave0;
-#X text 103 487 👈 musical content in staves. subpatch linked with
-stave-link patch., f 23;
+#X text 22 513 👆 musical content in staves. subpatch linked with
+stave-link patch., f 19;
 #X connect 1 0 8 0;
 #X connect 1 8 6 0;
 #X connect 2 0 3 0;
