@@ -1,84 +1,95 @@
-#N canvas 138 44 838 502 10;
+#N canvas -8 -8 786 795 10;
 #X declare -lib cyclone;
-#X obj 15 15 cnv 15 406 131 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
+#X obj 15 15 cnv 15 100 387 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
-#X obj 18 108 cnv 15 30 32 empty empty empty 20 12 0 14 #eaff99 #000000
+#X obj 18 190 cnv 15 30 49 empty \$0cvs4 empty 20 12 0 14 #99ffff #000000
 0;
-#X obj 318 20 cnv 15 30 120 empty empty empty 20 12 0 14 #ea99ff #000000
+#X obj 18 144 cnv 15 30 48 empty \$0cvs3 empty 20 12 0 14 #99ffb2 #000000
 0;
-#X obj 218 20 cnv 15 30 120 empty empty empty 20 12 0 14 #99c1ff #000000
+#X obj 18 48 cnv 15 30 32 empty \$0cvs1 empty 20 12 0 14 #ffe599 #000000
 0;
-#X obj 118 20 cnv 15 30 120 empty empty empty 20 12 0 14 #99ffc1 #000000
+#X obj 18 288 cnv 15 30 64 empty \$0cvs6 empty 20 12 0 14 #cc99ff #000000
 0;
-#X obj 570 356 send, f 10;
-#X obj 570 310 cyclone/zl rev;
-#X obj 570 333 unpack f s;
-#X floatatom 50 108 10 0 0 0 t t -, f 10;
-#X floatatom 50 124 10 0 0 0 sync sync -, f 10;
-#X floatatom 150 92 10 0 0 0 px px -, f 10;
-#X floatatom 150 108 10 0 0 0 py py -, f 10;
-#X floatatom 150 124 10 0 0 0 pz pz -, f 10;
-#X floatatom 150 20 10 0 0 0 lat lat -, f 10;
-#X floatatom 150 36 10 0 0 0 lon lon -, f 10;
-#X floatatom 150 52 10 0 0 0 alt alt -, f 10;
-#X floatatom 150 68 10 0 0 0 h h -, f 10;
-#X floatatom 350 20 10 0 0 0 rx rx -, f 10;
-#X floatatom 350 36 10 0 0 0 ry ry -, f 10;
-#X floatatom 350 52 10 0 0 0 rz rz -, f 10;
-#X floatatom 350 68 10 0 0 0 rw rw -, f 10;
-#X floatatom 250 20 10 0 0 0 vx vx -, f 10;
-#X floatatom 250 36 10 0 0 0 vy vy -, f 10;
-#X floatatom 250 52 10 0 0 0 vz vz -, f 10;
-#X floatatom 250 92 10 0 0 0 ax ax -, f 10;
-#X floatatom 250 108 10 0 0 0 ay ay -, f 10;
-#X floatatom 250 124 10 0 0 0 az az -, f 10;
-#X floatatom 350 92 10 0 0 0 rvx rvx -, f 10;
-#X floatatom 350 108 10 0 0 0 rvy rvy -, f 10;
-#X floatatom 350 124 10 0 0 0 rvz rvz -, f 10;
-#X obj 22 88 cnv 3 80 3 empty empty -=ELEVON=- -2 -2 0 14 #ff9999 #ffffff
+#X obj 18 80 cnv 15 30 64 empty \$0cvs2 empty 20 12 0 14 #ccff99 #000000
 0;
-#X obj 570 57 netreceive -u -b;
-#X msg 570 34 listen 4813;
-#X obj 570 80 oscparse;
-#X obj 570 126 route telemetry;
-#X obj 570 103 route list;
-#X obj 570 11 loadbang;
-#X obj 570 241 zl nth;
-#X obj 570 172 unpack, f 8;
-#X obj 570 195 + 1;
-#X msg 456 126 t sync px py pz lat lon alt rx ry rz rw h vx vy vz ax
+#X obj 250 356 send, f 10;
+#X obj 250 310 cyclone/zl rev;
+#X obj 250 333 unpack f s;
+#X floatatom 50 48 10 0 0 0 t t -, f 10;
+#X floatatom 50 64 10 0 0 0 sync sync -, f 10;
+#X floatatom 50 80 10 0 0 0 lat lat -, f 10;
+#X floatatom 50 96 10 0 0 0 lon lon -, f 10;
+#X floatatom 50 112 10 0 0 0 alt alt -, f 10;
+#X floatatom 50 128 10 0 0 0 h h -, f 10;
+#X obj 23 28 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #ff9999
+#000000 0;
+#X obj 250 57 netreceive -u -b;
+#X msg 250 34 listen 4813;
+#X obj 250 80 oscparse;
+#X obj 250 126 route telemetry;
+#X obj 250 103 route list;
+#X obj 250 11 loadbang;
+#X obj 250 241 zl nth;
+#X obj 250 172 unpack, f 8;
+#X obj 250 195 + 1;
+#X msg 136 126 t sync px py pz lat lon alt rx ry rz rw h vx vy vz ax
 ay az rvx rvy rvz, f 17;
-#X obj 456 103 loadbang;
-#X obj 570 264 pack s f;
-#X obj 570 287 route list;
-#X obj 570 218 t b f, f 6;
-#X obj 570 149 listfunnel;
-#X obj 650 11 declare -lib cyclone;
-#X obj 221 242 util-rainbowmaker;
-#X obj 222 204 / 5;
-#X obj 250 290 s cvs;
-#X floatatom 151 186 5 0 0 0 - - -, f 5;
-#X connect 6 0 7 0;
-#X connect 7 0 5 0;
-#X connect 7 1 5 1;
-#X connect 31 0 33 0;
-#X connect 32 0 31 0;
-#X connect 33 0 35 0;
-#X connect 34 0 45 0;
-#X connect 35 0 34 0;
-#X connect 36 0 32 0;
-#X connect 37 0 42 0;
-#X connect 38 0 39 0;
-#X connect 38 1 42 1;
-#X connect 39 0 44 0;
-#X connect 40 0 37 0;
-#X connect 41 0 40 0;
-#X connect 42 0 43 0;
-#X connect 43 0 6 0;
-#X connect 44 0 37 0;
-#X connect 44 1 37 1;
-#X connect 45 0 38 0;
-#X connect 47 0 49 0;
-#X connect 48 0 47 0;
-#X connect 50 0 48 0;
-#X coords 0 -1 1 1 414 140 2 10 10;
+#X obj 136 103 loadbang;
+#X obj 250 264 pack s f;
+#X obj 250 287 route list;
+#X obj 250 218 t b f, f 6;
+#X obj 250 149 listfunnel;
+#X obj 330 11 declare -lib cyclone;
+#X obj 436 278 util-rainbowmaker;
+#X floatatom 434 147 5 0 0 0 - - -, f 5;
+#X obj 437 240 / 8;
+#X obj 536 326 s;
+#X obj 434 177 t f f;
+#X obj 551 220 sprintf symbol \$0cvs%i;
+#X floatatom 50 144 10 0 0 0 px px -, f 10;
+#X floatatom 50 160 10 0 0 0 py py -, f 10;
+#X floatatom 50 176 10 0 0 0 pz pz -, f 10;
+#X floatatom 50 192 10 0 0 0 vx vx -, f 10;
+#X floatatom 50 208 10 0 0 0 vy vy -, f 10;
+#X floatatom 50 224 10 0 0 0 vz vz -, f 10;
+#X obj 18 240 cnv 15 30 48 empty \$0cvs5 empty 20 12 0 14 #99b2ff #000000
+0;
+#X floatatom 50 240 10 0 0 0 ax ax -, f 10;
+#X floatatom 50 256 10 0 0 0 ay ay -, f 10;
+#X floatatom 50 272 10 0 0 0 az az -, f 10;
+#X floatatom 50 288 10 0 0 0 rx rx -, f 10;
+#X floatatom 50 304 10 0 0 0 ry ry -, f 10;
+#X floatatom 50 320 10 0 0 0 rz rz -, f 10;
+#X floatatom 50 336 10 0 0 0 rw rw -, f 10;
+#X obj 18 351 cnv 15 30 48 empty \$0cvs7 empty 20 12 0 14 #ff99e5 #000000
+0;
+#X floatatom 50 351 10 0 0 0 rvx rvx -, f 10;
+#X floatatom 50 367 10 0 0 0 rvy rvy -, f 10;
+#X floatatom 50 383 10 0 0 0 rvz rvz -, f 10;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 8 1 6 1;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 18 0 20 0;
+#X connect 19 0 30 0;
+#X connect 20 0 19 0;
+#X connect 21 0 17 0;
+#X connect 22 0 27 0;
+#X connect 23 0 24 0;
+#X connect 23 1 27 1;
+#X connect 24 0 29 0;
+#X connect 25 0 22 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 7 0;
+#X connect 29 0 22 0;
+#X connect 29 1 22 1;
+#X connect 30 0 23 0;
+#X connect 32 0 35 0;
+#X connect 33 0 36 0;
+#X connect 34 0 32 0;
+#X connect 36 0 34 0;
+#X connect 36 1 37 0;
+#X connect 37 0 35 1;
+#X coords 0 -1 1 1 106 393 2 12 12;

@@ -1,38 +1,70 @@
-#N canvas 60 14 501 694 12;
-#X obj 13 17 receiver;
-#X obj 22 279 hyperstave;
-#X floatatom 22 224 15 0 0 0 - - -, f 15;
-#X obj 22 249 / 100;
-#X obj 209 610 makenote;
-#X text 20 165 🗺👇 map position (or other things) to hue, f 17
+#N canvas 75 22 781 640 12;
+#X obj 15 13 receiver;
+#X obj 189 142 hyperstave;
+#X floatatom 189 87 15 0 0 0 - - -, f 15;
+#X obj 189 112 / 100;
+#X obj 376 493 makenote;
+#X text 187 28 🗺👇 map position (or other things) to hue, f 17
 ;
-#X obj 209 488 print notes;
-#X text 209 517 we probably want to send note/velocity/duration tuples
-from here 👆 to here 👇, f 22;
-#N canvas 500 81 395 531 stave0 0;
+#X obj 376 351 print notes;
+#N canvas 883 43 619 688 stave0 0;
 #X obj 42 21 inlet;
 #X obj 75 56 r \$0position;
-#X obj 243 394 s \$0position;
-#X floatatom 243 343 17 0 0 0 - - -, f 17;
+#X obj 263 414 s \$0position;
+#X floatatom 263 277 17 0 0 0 - - -, f 17;
 #X obj 109 90 r \$0notes;
-#X obj 30 395 s \$0notes;
+#X obj 30 415 s \$0notes;
 #X floatatom 42 155 5 0 0 0 - - -, f 5;
-#X text 89 156 < distance;
 #X obj 42 118 stave-link;
-#X text 243 420 this send isn't working in vanilla, f 19;
-#X obj 243 368 expr fmod($f1 \, 1.);
-#X text 27 353 send note/velocity/duration can send note offs to flush
-, f 29;
-#X connect 0 0 8 0;
-#X connect 1 0 8 1;
-#X connect 3 0 10 0;
-#X connect 4 0 8 2;
-#X connect 8 0 6 0;
-#X connect 10 0 2 0;
-#X restore 22 488 pd stave0;
-#X text 22 513 👆 musical content in staves. subpatch linked with
+#X text 263 440 this send isn't working in vanilla, f 19;
+#N canvas 0 0 450 300 fmod 0;
+#X obj 120 -27 inlet;
+#X obj 120 192 outlet;
+#X obj 178 -27 inlet;
+#X obj 120 1 / \$1;
+#X obj 120 167 * \$1;
+#X obj 150 59 int;
+#X obj 120 33 t f f;
+#X obj 120 85 -;
+#X obj 120 112 moses 0;
+#X obj 120 140 + 1;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 0 4 1;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 6 1 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 8 1 4 0;
+#X connect 9 0 4 0;
+#X restore 263 380 pd fmod;
+#X msg 308 353 1;
+#X obj 308 323 loadbang;
+#X text 83 157 👈 distance 0 is on target 1 is on neighbouring stave
+0.5 is borderline, f 26;
+#X text 27 442 👆send note/velocity/duration can send note offs to
+flush, f 29;
+#X obj 263 305 / 100;
+#X connect 0 0 7 0;
+#X connect 1 0 7 1;
+#X connect 3 0 14 0;
+#X connect 4 0 7 2;
+#X connect 7 0 6 0;
+#X connect 9 0 2 0;
+#X connect 10 0 9 1;
+#X connect 11 0 10 0;
+#X connect 14 0 9 0;
+#X restore 189 351 pd stave0;
+#X text 189 376 👆 musical content in staves. subpatch linked with
 stave-link patch., f 19;
-#X connect 1 0 8 0;
+#X text 376 380 we probably want to send note/velocity/duration tuples
+from here 👆 to here 👇 maybe we don't need a notes outlet???,
+f 22;
+#X text 417 307 👈 or should this be audio out? or both?, f 22;
+#X connect 1 0 7 0;
 #X connect 1 8 6 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;

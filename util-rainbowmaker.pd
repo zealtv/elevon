@@ -1,4 +1,4 @@
-#N canvas 544 239 450 301 10;
+#N canvas 544 29 643 512 10;
 #X obj 404 357 t b f;
 #X obj 338 415 +;
 #X obj 338 440 t b f;
@@ -13,11 +13,11 @@
 #X obj 339 251 * 255;
 #X obj 403 287 i;
 #X obj 403 253 * 255;
-#X msg 267 88 \$1 0.4 1;
-#X obj 267 142 unpack f f f;
-#X obj 236 34 inlet;
-#X obj 236 627 outlet;
-#X msg 339 554 color \$1 -1 -1;
+#X msg 267 138 \$1 0.4 1;
+#X obj 267 192 unpack f f f;
+#X obj 267 105 inlet;
+#X obj 338 567 outlet;
+#X msg 339 534 color \$1 -1 -1;
 #N canvas 0 0 450 300 hueconverter 0;
 #X obj 112 69 route 0;
 #X msg 112 41 \$2 \$3 \$1;
@@ -161,7 +161,7 @@
 #X connect 34 0 35 0;
 #X connect 35 0 10 0;
 #X connect 35 1 7 0;
-#X restore 267 114 pd hueconverter;
+#X restore 267 164 pd hueconverter;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 1 0 2 0;
