@@ -1,12 +1,12 @@
-#N canvas 104 44 1314 611 10;
+#N canvas 104 44 1314 612 10;
 #X obj 12 14 cnv 15 190 166 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
-#X obj 38 78 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
+#X obj 38 38 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
 #f0f0f0 #000000 0;
-#X obj 40 20 hsl 128 15 0 1 0 0 empty \$0position0 empty -2 -8 0 10
-#fc9898 #000000 #000000 9525 1;
-#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #99ffe6
-#000000 #000000 8050 1;
+#X obj 40 20 hsl 128 15 0 1 0 0 empty \$0playhead0 empty -2 -8 0 10
+#fc9898 #000000 #000000 0 1;
+#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #deff99
+#000000 #000000 11622 1;
 #X obj 180 20 bng 15 250 50 0 \$0button0 empty empty 17 7 0 10 #fc9898
 #fcfcfc #000000;
 #X obj 180 40 bng 15 250 50 0 \$0button1 empty empty 17 7 0 10 #fce498
@@ -19,26 +19,26 @@
 #fcfcfc #000000;
 #X obj 180 120 bng 15 250 50 0 \$0button5 empty empty 17 7 0 10 #98b0fc
 #fcfcfc #000000;
-#X obj 40 40 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fce498
-#000000 #000000 2800 1;
-#X obj 40 60 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #ccfc98
-#000000 #000000 8000 1;
-#X obj 40 80 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98fcb0
-#000000 #000000 2400 1;
-#X obj 40 100 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98fcfc
-#000000 #000000 10300 1;
-#X obj 40 120 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98b0fc
-#000000 #000000 2800 1;
+#X obj 40 40 hsl 128 15 0 1 0 0 empty \$0playhead1 empty -2 -8 0 10
+#fce498 #000000 #000000 0 1;
+#X obj 40 60 hsl 128 15 0 1 0 0 empty \$0playhead2 empty -2 -8 0 10
+#ccfc98 #000000 #000000 0 1;
+#X obj 40 80 hsl 128 15 0 1 0 0 empty \$0playhead3 empty -2 -8 0 10
+#98fcb0 #000000 #000000 0 1;
+#X obj 40 100 hsl 128 15 0 1 0 0 empty \$0playhead4 empty -2 -8 0 10
+#98fcfc #000000 #000000 0 1;
+#X obj 40 120 hsl 128 15 0 1 0 0 empty \$0playhead5 empty -2 -8 0 10
+#98b0fc #000000 #000000 0 1;
 #X msg 630 219 pos \$1 \$2;
 #X obj 630 192 pack f f, f 15;
 #X floatatom 717 100 5 0 0 0 - - -, f 5;
 #X obj 717 132 * 20, f 5;
-#X obj 40 140 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #cc98fc
-#000000 #000000 5500 1;
+#X obj 40 140 hsl 128 15 0 1 0 0 empty \$0playhead6 empty -2 -8 0 10
+#cc98fc #000000 #000000 0 1;
 #X obj 180 140 bng 15 250 50 0 \$0button6 empty empty 17 7 0 10 #cc98fc
 #fcfcfc #000000;
-#X obj 40 160 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fc98e4
-#000000 #000000 4700 1;
+#X obj 40 160 hsl 128 15 0 1 0 0 empty \$0playhead7 empty -2 -8 0 10
+#fc98e4 #000000 #000000 0 1;
 #X obj 180 160 bng 15 250 50 0 \$0button7 empty empty 17 7 0 10 #fc98e4
 #fcfcfc #000000;
 #X obj 630 91 i;

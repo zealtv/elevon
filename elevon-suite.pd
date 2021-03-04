@@ -1,22 +1,17 @@
-#N canvas 75 22 781 640 12;
-#X obj 15 13 receiver;
+#N canvas 283 12 784 643 12;
+#X obj 14 13 receiver;
 #X obj 189 142 hyperstave;
 #X floatatom 189 87 15 0 0 0 - - -, f 15;
 #X obj 189 112 / 100;
-#X obj 376 493 makenote;
-#X text 187 28 🗺👇 map position (or other things) to hue, f 17
-;
-#X obj 376 351 print notes;
-#N canvas 883 43 619 688 stave0 0;
+#X obj 376 513 makenote;
+#X obj 376 371 print notes;
+#N canvas 758 68 415 618 stave0 1;
 #X obj 42 21 inlet;
-#X obj 75 56 r \$0position;
-#X obj 263 414 s \$0position;
 #X floatatom 263 277 17 0 0 0 - - -, f 17;
 #X obj 109 90 r \$0notes;
 #X obj 30 415 s \$0notes;
 #X floatatom 42 155 5 0 0 0 - - -, f 5;
 #X obj 42 118 stave-link;
-#X text 263 440 this send isn't working in vanilla, f 19;
 #N canvas 0 0 450 300 fmod 0;
 #X obj 120 -27 inlet;
 #X obj 120 192 outlet;
@@ -48,23 +43,29 @@
 #X text 27 442 👆send note/velocity/duration can send note offs to
 flush, f 29;
 #X obj 263 305 / 100;
-#X connect 0 0 7 0;
-#X connect 1 0 7 1;
-#X connect 3 0 14 0;
-#X connect 4 0 7 2;
-#X connect 7 0 6 0;
-#X connect 9 0 2 0;
-#X connect 10 0 9 1;
-#X connect 11 0 10 0;
-#X connect 14 0 9 0;
-#X restore 189 351 pd stave0;
-#X text 189 376 👆 musical content in staves. subpatch linked with
+#X text 263 440 this send isn't working in vanilla. issue seems to
+be in stave-link., f 19;
+#X obj 263 414 s \$0playhead;
+#X obj 75 56 r \$0playhead;
+#X connect 0 0 5 0;
+#X connect 1 0 11 0;
+#X connect 2 0 5 2;
+#X connect 5 0 4 0;
+#X connect 6 0 13 0;
+#X connect 7 0 6 1;
+#X connect 8 0 7 0;
+#X connect 11 0 6 0;
+#X connect 14 0 5 1;
+#X restore 189 441 pd stave0;
+#X text 189 466 👆 musical content in staves. subpatch linked with
 stave-link patch., f 19;
-#X text 376 380 we probably want to send note/velocity/duration tuples
+#X text 376 400 we probably want to send note/velocity/duration tuples
 from here 👆 to here 👇 maybe we don't need a notes outlet???,
 f 22;
-#X text 417 307 👈 or should this be audio out? or both?, f 22;
-#X connect 1 0 7 0;
-#X connect 1 8 6 0;
+#X text 417 327 👈 or should this be audio out? or both?, f 22;
+#X text 187 28 📈👇 map position (or other things) to hue, f 17
+;
+#X connect 1 0 6 0;
+#X connect 1 8 5 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;
