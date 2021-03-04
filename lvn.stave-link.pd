@@ -1,0 +1,62 @@
+#N canvas -8 -8 1554 795 10;
+#X obj 55 400 s;
+#X msg 75 349 symbol \$1notes;
+#X obj 414 117 s \$0id;
+#X obj 470 117 s \$0stave;
+#X obj 76 314 r \$0id;
+#X obj 199 142 r \$0stave;
+#X obj 154 119 r \$0id;
+#X obj 543 117 s \$0ready;
+#X obj 132 91 r \$0ready;
+#X obj 115 283 s;
+#X obj 414 26 inlet h-stave, f 7;
+#X obj 415 79 route id stave ready hue, f 45;
+#X obj 622 246 -;
+#X obj 660 153 r \$0stave;
+#X obj 621 445 outlet distance;
+#X obj 622 358 abs;
+#X obj 614 184 * 8;
+#X text 544 182 num staves;
+#X obj 622 298 expr if($f1 > $f2/2 \, $f1 - $f2 \, $f1), f 22;
+#X msg 750 258 8;
+#X obj 748 203 loadbang;
+#X text 786 264 num staves;
+#X obj 132 188 pack f f f;
+#X obj 660 191 + 0.5;
+#X text 476 29 👈receives id \, stave-num and hue from hyperstave
+;
+#X text 165 280 👈forwards normalised float to stave position indicator
+, f 22;
+#X text 106 393 👈forwards note tuples (note \, velocity \, duration)
+to hyperstave note out, f 34;
+#X text 729 440 👈distance from center of stave 0 is centred on stave
+\, 0.5 is the boundary to the next stave. 5 is over the centre of the
+5th stave away., f 27;
+#X msg 133 219 symbol \$2playhead\$3;
+#X obj 27 10 inlet messages, f 26;
+#X obj 55 48 route notes playhead;
+#X obj 619 403 cyclone/prepend distance;
+#X connect 1 0 0 1;
+#X connect 4 0 1 0;
+#X connect 5 0 22 2;
+#X connect 6 0 22 1;
+#X connect 8 0 22 0;
+#X connect 10 0 11 0;
+#X connect 11 0 2 0;
+#X connect 11 1 3 0;
+#X connect 11 2 7 0;
+#X connect 11 3 16 0;
+#X connect 12 0 18 0;
+#X connect 13 0 23 0;
+#X connect 15 0 31 0;
+#X connect 16 0 12 0;
+#X connect 18 0 15 0;
+#X connect 19 0 18 1;
+#X connect 20 0 19 0;
+#X connect 22 0 28 0;
+#X connect 23 0 12 1;
+#X connect 28 0 9 1;
+#X connect 29 0 30 0;
+#X connect 30 0 0 0;
+#X connect 30 1 9 0;
+#X connect 31 0 14 0;

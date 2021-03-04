@@ -1,71 +1,55 @@
-#N canvas 283 12 784 643 12;
-#X obj 14 13 receiver;
-#X obj 189 142 hyperstave;
+#N canvas 45 44 992 674 12;
 #X floatatom 189 87 15 0 0 0 - - -, f 15;
 #X obj 189 112 / 100;
-#X obj 376 513 makenote;
-#X obj 376 371 print notes;
-#N canvas 758 68 415 618 stave0 1;
-#X obj 42 21 inlet;
-#X floatatom 263 277 17 0 0 0 - - -, f 17;
-#X obj 109 90 r \$0notes;
-#X obj 30 415 s \$0notes;
-#X floatatom 42 155 5 0 0 0 - - -, f 5;
-#X obj 42 118 stave-link;
-#N canvas 0 0 450 300 fmod 0;
-#X obj 120 -27 inlet;
-#X obj 120 192 outlet;
-#X obj 178 -27 inlet;
-#X obj 120 1 / \$1;
-#X obj 120 167 * \$1;
-#X obj 150 59 int;
-#X obj 120 33 t f f;
-#X obj 120 85 -;
-#X obj 120 112 moses 0;
-#X obj 120 140 + 1;
-#X connect 0 0 3 0;
-#X connect 2 0 3 1;
-#X connect 2 0 4 1;
-#X connect 3 0 6 0;
-#X connect 4 0 1 0;
-#X connect 5 0 7 1;
-#X connect 6 0 7 0;
-#X connect 6 1 5 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 8 1 4 0;
-#X connect 9 0 4 0;
-#X restore 263 380 pd fmod;
-#X msg 308 353 1;
-#X obj 308 323 loadbang;
-#X text 83 157 👈 distance 0 is on target 1 is on neighbouring stave
+#X obj 379 384 makenote;
+#X obj 371 482 print notes;
+#N canvas 978 75 543 656 stave0 1;
+#X obj 163 92 inlet;
+#X floatatom 315 408 17 0 0 0 - - -, f 17;
+#X floatatom 39 219 5 0 0 0 - - -, f 5;
+#X text 83 217 👈 distance 0 is on target 1 is on neighbouring stave
 0.5 is borderline, f 26;
-#X text 27 442 👆send note/velocity/duration can send note offs to
+#X text 34 551 👆send note/velocity/duration can send note offs to
 flush, f 29;
-#X obj 263 305 / 100;
-#X text 263 440 this send isn't working in vanilla. issue seems to
-be in stave-link., f 19;
-#X obj 263 414 s \$0playhead;
-#X obj 75 56 r \$0playhead;
-#X connect 0 0 5 0;
-#X connect 1 0 11 0;
-#X connect 2 0 5 2;
-#X connect 5 0 4 0;
-#X connect 6 0 13 0;
-#X connect 7 0 6 1;
-#X connect 8 0 7 0;
-#X connect 11 0 6 0;
-#X connect 14 0 5 1;
-#X restore 189 441 pd stave0;
-#X text 189 466 👆 musical content in staves. subpatch linked with
+#X obj 315 436 / 100;
+#X obj 315 471 sub/fmod 1;
+#X obj 41 134 lvn.stave-link, f 18;
+#X text 291 222 would also be useful to have 0 - 1 \, entrance to exit
+of stave. That would allow chaining with parent., f 30;
+#X obj 313 562 s $to-parent;
+#X obj 40 88 r $to-parent;
+#X msg 39 435 54 127 1000;
+#X obj 37 522 s $to-parent;
+#X obj 38 473 cyclone/prepend notes;
+#X obj 314 517 cyclone/prepend playhead;
+#X text 217 92 👈 links with hyperstave, f 26;
+#X obj 39 186 route distance;
+#X connect 0 0 7 1;
+#X connect 1 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 14 0;
+#X connect 7 0 16 0;
+#X connect 10 0 7 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;
+#X connect 14 0 9 0;
+#X connect 16 0 2 0;
+#X restore 193 403 pd stave0;
+#X text 193 428 👆 musical content in staves. subpatch linked with
 stave-link patch., f 19;
-#X text 376 400 we probably want to send note/velocity/duration tuples
-from here 👆 to here 👇 maybe we don't need a notes outlet???,
-f 22;
-#X text 417 327 👈 or should this be audio out? or both?, f 22;
 #X text 187 28 📈👇 map position (or other things) to hue, f 17
 ;
-#X connect 1 0 6 0;
-#X connect 1 8 5 0;
-#X connect 2 0 3 0;
-#X connect 3 0 1 0;
+#X obj 14 13 lvn.telemetry;
+#X obj 193 153 lvn.hyperstave;
+#X obj 657 86 lvn.n.hyperstave;
+#X obj 192 372 route 0;
+#X text 403 341 👈 note \, vel \, duration, f 22;
+#X obj 374 436 pack f f;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 12 0;
+#X connect 2 1 12 1;
+#X connect 8 0 10 0;
+#X connect 8 1 2 0;
+#X connect 10 0 4 0;
+#X connect 12 0 3 0;
