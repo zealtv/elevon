@@ -1,27 +1,27 @@
-#N canvas 376 0 786 780 10;
+#N canvas -8 -8 1554 795 10;
 #X declare -lib cyclone;
-#X obj 15 15 cnv 15 100 387 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
+#X obj 15 15 cnv 15 100 357 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
-#X obj 18 190 cnv 15 30 49 empty \$0cvs4 empty 20 12 0 14 #99ffff #000000
+#X obj 18 160 cnv 15 30 49 empty \$0cvs4 empty 20 12 0 14 #99ffff #000000
 0;
-#X obj 18 144 cnv 15 30 48 empty \$0cvs3 empty 20 12 0 14 #99ffb2 #000000
+#X obj 18 114 cnv 15 30 48 empty \$0cvs3 empty 20 12 0 14 #99ffb2 #000000
 0;
-#X obj 18 48 cnv 15 30 32 empty \$0cvs1 empty 20 12 0 14 #ffe599 #000000
+#X obj 18 18 cnv 15 30 32 empty \$0cvs1 empty 20 12 0 14 #ffe599 #000000
 0;
-#X obj 18 288 cnv 15 30 64 empty \$0cvs6 empty 20 12 0 14 #cc99ff #000000
+#X obj 18 258 cnv 15 30 64 empty \$0cvs6 empty 20 12 0 14 #cc99ff #000000
 0;
-#X obj 18 80 cnv 15 30 64 empty \$0cvs2 empty 20 12 0 14 #ccff99 #000000
+#X obj 18 50 cnv 15 30 64 empty \$0cvs2 empty 20 12 0 14 #ccff99 #000000
 0;
 #X obj 250 356 send, f 10;
 #X obj 250 310 cyclone/zl rev;
 #X obj 250 333 unpack f s;
-#X floatatom 50 48 10 0 0 0 t t -, f 10;
-#X floatatom 50 64 10 0 0 0 sync sync -, f 10;
-#X floatatom 50 80 10 0 0 0 lat lat -, f 10;
-#X floatatom 50 96 10 0 0 0 lon lon -, f 10;
-#X floatatom 50 112 10 0 0 0 alt alt -, f 10;
-#X floatatom 50 128 10 0 0 0 h h -, f 10;
-#X obj 23 28 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #ff9999
+#X floatatom 50 18 10 0 0 0 t t -, f 10;
+#X floatatom 50 34 10 0 0 0 sync sync -, f 10;
+#X floatatom 50 50 10 0 0 0 lat lat -, f 10;
+#X floatatom 50 66 10 0 0 0 lon lon -, f 10;
+#X floatatom 50 82 10 0 0 0 alt alt -, f 10;
+#X floatatom 50 98 10 0 0 0 h h -, f 10;
+#X obj 143 28 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #ff9999
 #000000 0;
 #X obj 250 57 netreceive -u -b;
 #X msg 250 34 listen 4813;
@@ -45,26 +45,26 @@ ay az rvx rvy rvz, f 17;
 #X obj 536 326 s;
 #X obj 434 177 t f f;
 #X obj 551 220 sprintf symbol \$0cvs%i;
-#X floatatom 50 144 10 0 0 0 px px -, f 10;
-#X floatatom 50 160 10 0 0 0 py py -, f 10;
-#X floatatom 50 176 10 0 0 0 pz pz -, f 10;
-#X floatatom 50 192 10 0 0 0 vx vx -, f 10;
-#X floatatom 50 208 10 0 0 0 vy vy -, f 10;
-#X floatatom 50 224 10 0 0 0 vz vz -, f 10;
-#X obj 18 240 cnv 15 30 48 empty \$0cvs5 empty 20 12 0 14 #99b2ff #000000
+#X floatatom 50 114 10 0 0 0 px px -, f 10;
+#X floatatom 50 130 10 0 0 0 py py -, f 10;
+#X floatatom 50 146 10 0 0 0 pz pz -, f 10;
+#X floatatom 50 162 10 0 0 0 vx vx -, f 10;
+#X floatatom 50 178 10 0 0 0 vy vy -, f 10;
+#X floatatom 50 194 10 0 0 0 vz vz -, f 10;
+#X obj 18 210 cnv 15 30 48 empty \$0cvs5 empty 20 12 0 14 #99b2ff #000000
 0;
-#X floatatom 50 240 10 0 0 0 ax ax -, f 10;
-#X floatatom 50 256 10 0 0 0 ay ay -, f 10;
-#X floatatom 50 272 10 0 0 0 az az -, f 10;
-#X floatatom 50 288 10 0 0 0 rx rx -, f 10;
-#X floatatom 50 304 10 0 0 0 ry ry -, f 10;
-#X floatatom 50 320 10 0 0 0 rz rz -, f 10;
-#X floatatom 50 336 10 0 0 0 rw rw -, f 10;
-#X obj 18 351 cnv 15 30 48 empty \$0cvs7 empty 20 12 0 14 #ff99e5 #000000
+#X floatatom 50 210 10 0 0 0 ax ax -, f 10;
+#X floatatom 50 226 10 0 0 0 ay ay -, f 10;
+#X floatatom 50 242 10 0 0 0 az az -, f 10;
+#X floatatom 50 258 10 0 0 0 rx rx -, f 10;
+#X floatatom 50 274 10 0 0 0 ry ry -, f 10;
+#X floatatom 50 290 10 0 0 0 rz rz -, f 10;
+#X floatatom 50 306 10 0 0 0 rw rw -, f 10;
+#X obj 18 321 cnv 15 30 48 empty \$0cvs7 empty 20 12 0 14 #ff99e5 #000000
 0;
-#X floatatom 50 351 10 0 0 0 rvx rvx -, f 10;
-#X floatatom 50 367 10 0 0 0 rvy rvy -, f 10;
-#X floatatom 50 383 10 0 0 0 rvz rvz -, f 10;
+#X floatatom 50 321 10 0 0 0 rvx rvx -, f 10;
+#X floatatom 50 337 10 0 0 0 rvy rvy -, f 10;
+#X floatatom 50 353 10 0 0 0 rvz rvz -, f 10;
 #X obj 436 278 sub/rainbowmaker;
 #X connect 7 0 8 0;
 #X connect 8 0 6 0;
@@ -92,4 +92,4 @@ ay az rvx rvy rvz, f 17;
 #X connect 35 1 36 0;
 #X connect 36 0 34 1;
 #X connect 55 0 34 0;
-#X coords 0 -1 1 1 106 393 2 12 12;
+#X coords 0 -1 1 1 106 363 2 12 12;
