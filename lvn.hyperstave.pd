@@ -5,8 +5,8 @@
 #f0f0f0 #000000 0;
 #X obj 40 20 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fc9898
 #000000 #000000 0 1;
-#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #c499ff
-#000000 #000000 3913 1;
+#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #9e99ff
+#000000 #000000 4822 1;
 #X obj 180 20 bng 15 250 50 0 \$0button0 \$0button0 empty 17 7 0 10
 #fc9898 #fcfcfc #000000;
 #X obj 180 40 bng 15 250 50 0 \$0button1 empty empty 17 7 0 10 #fce498
@@ -29,10 +29,10 @@
 #000000 #000000 0 1;
 #X obj 40 120 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #98b0fc
 #000000 #000000 0 1;
-#X msg 1230 555 pos \$1 \$2;
-#X obj 1230 528 pack f f, f 15;
-#X floatatom 1317 436 5 0 0 0 - - -, f 5;
-#X obj 1317 468 * 20, f 5;
+#X msg 1230 605 pos \$1 \$2;
+#X obj 1230 578 pack f f, f 15;
+#X floatatom 1317 486 5 0 0 0 - - -, f 5;
+#X obj 1317 518 * 20, f 5;
 #X obj 40 140 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #cc98fc
 #000000 #000000 0 1;
 #X obj 180 140 bng 15 250 50 0 \$0button6 empty empty 17 7 0 10 #cc98fc
@@ -41,24 +41,24 @@
 #000000 #000000 0 1;
 #X obj 180 160 bng 15 250 50 0 \$0button7 empty empty 17 7 0 10 #fc98e4
 #fcfcfc #000000;
-#X obj 1230 427 i;
-#X obj 1230 454 t b a;
-#X obj 1230 582 s \$0highlight-cnv;
-#X obj 1230 400 * 7.9;
+#X obj 1230 477 i;
+#X obj 1230 504 t b a;
+#X obj 1230 632 s \$0highlight-cnv;
+#X obj 1230 450 * 7.9;
 #X obj 580 47 inlet hue;
-#X obj 1317 499 + 18;
-#X msg 1230 492 38;
+#X obj 1317 549 + 18;
+#X msg 1230 542 38;
 #X text 219 18 40 20;
 #X text 219 43 40 40;
 #X text 259 17 180 20;
-#X obj 578 230 s to\$0hue, f 14;
+#X obj 578 260 s to\$0hue, f 14;
 #X obj 580 121 s to\$0hue, f 14;
 #X obj 578 180 r \$0hue;
 #X obj 1230 373 r \$0hue;
-#X obj 578 205 sub/rainbowmaker;
+#X obj 578 235 sub/rainbowmaker;
 #X obj 580 86 sub/fmod 1;
-#X obj 508 242 s hues;
-#X msg 508 214 \$0 \$1;
+#X obj 508 272 s hues;
+#X msg 508 244 \$0 \$1;
 #X obj 847 140 loadbang;
 #X obj 789 442 f \$0;
 #X obj 787 591 outlet staves;
@@ -85,15 +85,19 @@
 #X obj 1210 149 route notes playheads;
 #X obj 334 17 r \$0-playheads;
 #X obj 335 52 route 0 1 2 3 4 5 6 7;
-#X obj 1272 188 s \$0-playheads;
-#X obj 1211 224 outlet notes-bus;
+#X obj 1272 228 s \$0-playheads;
+#X obj 1211 264 outlet notes-bus;
 #X text 1219 348 👇stave highlighting;
 #X text 806 16 👇connect with staves;
 #X text 1198 54 👇communication from staves;
 #X text 570 21 👇hue in;
-#X text 510 267 👆 global hue send;
-#X text 574 248 👆 color hue slider;
+#X text 510 297 👆 global hue send;
+#X text 574 278 👆 color hue slider;
 #X text 582 143 👆 position to hue slider, f 25;
+#X text 592 210 🔪 cut for performance;
+#X obj 508 210 r \$0hue;
+#X text 1284 192 🔪 cut for performance;
+#X text 1246 412 🔪 cut for performance;
 #X connect 15 0 25 0;
 #X connect 16 0 15 0;
 #X connect 17 0 18 0;
@@ -106,7 +110,6 @@
 #X connect 28 0 16 1;
 #X connect 29 0 16 0;
 #X connect 35 0 37 0;
-#X connect 35 0 40 0;
 #X connect 36 0 26 0;
 #X connect 37 0 33 0;
 #X connect 38 0 34 0;
@@ -145,4 +148,5 @@
 #X connect 64 5 14 0;
 #X connect 64 6 19 0;
 #X connect 64 7 21 0;
+#X connect 75 0 40 0;
 #X coords 0 -1 1 1 194 174 2 10 10;
