@@ -1,4 +1,4 @@
-#N canvas -8 -8 1554 795 10;
+#N canvas -7 0 784 786 10;
 #X obj 12 14 cnv 15 190 328 empty \$0bg empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
 #X obj 38 178 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
@@ -158,7 +158,7 @@
 #X text 467 62 the sends and receives initially don't work - saving
 and reopening saving seems to fix...;
 #X obj 620 472 pack f f;
-#X text 575 784 [donecanvasdialog <x-units> <y-units> <gop> <x-from>
+#X text 722 823 [donecanvasdialog <x-units> <y-units> <gop> <x-from>
 <y-from> <x-to> <y-to> <x-size> <y-size> <x-margin> <y-margin>(;
 #X msg 617 530 donecanvasdialog 1 -1 1 \$1 -1 1 1 194 \$2 10 10, f
 22;

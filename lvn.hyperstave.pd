@@ -1,12 +1,12 @@
-#N canvas 374 0 1105 780 10;
+#N canvas 216 0 1106 780 10;
 #X obj 12 14 cnv 15 190 166 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
-#X obj 38 158 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
+#X obj 38 78 cnv 15 160 19 empty \$0highlight-cnv empty 20 12 0 14
 #f0f0f0 #000000 0;
 #X obj 40 20 hsl 128 15 0 1 0 0 empty \$0playhead0 empty -2 -8 0 10
-#fc9898 #000000 #000000 5461 1;
-#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #ff99bd
-#000000 #000000 894 1;
+#fc9898 #000000 #000000 12700 1;
+#X obj 20 20 vsl 15 150 1 0 0 0 \$0hue to\$0hue empty 0 -9 0 10 #99ffd7
+#000000 #000000 8416 1;
 #X obj 180 20 bng 15 250 50 0 \$0button0 \$0button0 empty 17 7 0 10
 #fc9898 #fcfcfc #000000;
 #X obj 180 40 bng 15 250 50 0 \$0button1 empty empty 17 7 0 10 #fce498
@@ -20,7 +20,7 @@
 #X obj 180 120 bng 15 250 50 0 \$0button5 empty empty 17 7 0 10 #98b0fc
 #fcfcfc #000000;
 #X obj 40 40 hsl 128 15 0 1 0 0 empty \$0playhead1 empty -2 -8 0 10
-#fce498 #000000 #000000 0 1;
+#fce498 #000000 #000000 12700 1;
 #X obj 40 60 hsl 128 15 0 1 0 0 empty \$0playhead2 empty -2 -8 0 10
 #ccfc98 #000000 #000000 0 1;
 #X obj 40 80 hsl 128 15 0 1 0 0 empty \$0playhead3 empty -2 -8 0 10
@@ -70,6 +70,8 @@
 #X obj 1102 404 sub/stave-sender \$0 7;
 #X obj 336 197 sub/rainbowmaker;
 #X obj 334 100 sub/fmod 1;
+#X obj 266 234 s hues;
+#X msg 266 206 \$0 \$1;
 #X connect 15 0 25 0;
 #X connect 16 0 15 0;
 #X connect 17 0 18 0;
@@ -83,6 +85,7 @@
 #X connect 29 0 16 0;
 #X connect 33 0 34 0;
 #X connect 37 0 50 0;
+#X connect 37 0 53 0;
 #X connect 38 0 26 0;
 #X connect 42 0 40 0;
 #X connect 43 0 40 0;
@@ -94,4 +97,5 @@
 #X connect 49 0 40 0;
 #X connect 50 0 35 0;
 #X connect 51 0 36 0;
+#X connect 53 0 52 0;
 #X coords 0 -1 1 1 194 174 2 10 10;

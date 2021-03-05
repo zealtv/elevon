@@ -1,55 +1,112 @@
-#N canvas 45 44 992 674 12;
-#X floatatom 189 87 15 0 0 0 - - -, f 15;
-#X obj 189 112 / 100;
-#X obj 379 384 makenote;
-#X obj 371 482 print notes;
-#N canvas 978 75 543 656 stave0 1;
-#X obj 163 92 inlet;
-#X floatatom 315 408 17 0 0 0 - - -, f 17;
+#N canvas -7 0 784 786 12;
+#X obj 123 13 cnv 15 392 91 empty empty empty 20 12 0 14 #c0c0c0 #404040
+0;
+#X floatatom 163 197 15 0 0 0 - - -, f 15;
+#X obj 163 222 / 100;
+#X obj 350 490 makenote;
+#X obj 350 558 print notes;
+#N canvas 696 128 810 696 stave0 0;
+#X obj 173 92 inlet;
+#X floatatom 315 558 17 0 0 0 - - -, f 17;
 #X floatatom 39 219 5 0 0 0 - - -, f 5;
-#X text 83 217 👈 distance 0 is on target 1 is on neighbouring stave
-0.5 is borderline, f 26;
-#X text 34 551 👆send note/velocity/duration can send note offs to
+#X text 34 701 👆send note/velocity/duration can send note offs to
 flush, f 29;
-#X obj 315 436 / 100;
-#X obj 315 471 sub/fmod 1;
+#X obj 315 586 / 100;
+#X obj 315 621 sub/fmod 1;
 #X obj 41 134 lvn.stave-link, f 18;
-#X text 291 222 would also be useful to have 0 - 1 \, entrance to exit
+#X text 563 218 would also be useful to have 0 - 1 \, entrance to exit
 of stave. That would allow chaining with parent., f 30;
-#X obj 313 562 s $to-parent;
-#X obj 40 88 r $to-parent;
-#X msg 39 435 54 127 1000;
-#X obj 37 522 s $to-parent;
-#X obj 38 473 cyclone/prepend notes;
-#X obj 314 517 cyclone/prepend playhead;
-#X text 217 92 👈 links with hyperstave, f 26;
-#X obj 39 186 route distance;
-#X connect 0 0 7 1;
-#X connect 1 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 14 0;
-#X connect 7 0 16 0;
-#X connect 10 0 7 0;
-#X connect 11 0 13 0;
-#X connect 13 0 12 0;
-#X connect 14 0 9 0;
-#X connect 16 0 2 0;
-#X restore 193 403 pd stave0;
-#X text 193 428 👆 musical content in staves. subpatch linked with
-stave-link patch., f 19;
-#X text 187 28 📈👇 map position (or other things) to hue, f 17
-;
+#X msg 39 585 54 127 1000;
+#X obj 38 623 cyclone/prepend notes;
+#X obj 314 667 cyclone/prepend playhead;
+#X text 227 92 👈 links with hyperstave, f 26;
+#X text 44 248 distance 0 is on target 1 is on neighbouring stave 0.5
+is borderline, f 26;
+#X floatatom 238 242 5 0 0 0 - - -, f 5;
+#X obj 409 266 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 39 186 route distance relativepos active, f 78;
+#X obj 244 312 clip 0 1;
+#X obj 40 68 ggee/rl to-parent;
+#X obj 313 712 ggee/sl to-parent;
+#X obj 37 672 ggee/sl to-parent;
+#X connect 0 0 6 1;
+#X connect 1 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 15 0;
+#X connect 8 0 9 0;
+#X connect 9 0 19 0;
+#X connect 10 0 18 0;
+#X connect 13 0 16 0;
+#X connect 15 0 2 0;
+#X connect 15 1 13 0;
+#X connect 15 2 14 0;
+#X connect 16 0 10 0;
+#X connect 17 0 6 0;
+#X restore 163 549 pd stave0;
+#X text 163 138 📈👇 map position (or other things) to hue, f
+17;
 #X obj 14 13 lvn.telemetry;
-#X obj 193 153 lvn.hyperstave;
-#X obj 657 86 lvn.n.hyperstave;
-#X obj 192 372 route 0;
-#X text 403 341 👈 note \, vel \, duration, f 22;
-#X obj 374 436 pack f f;
-#X connect 0 0 1 0;
-#X connect 1 0 8 0;
-#X connect 2 0 12 0;
-#X connect 2 1 12 1;
-#X connect 8 0 10 0;
-#X connect 8 1 2 0;
+#X obj 163 259 lvn.hyperstave;
+#X text 374 452 👈 note \, vel \, duration, f 22;
+#X obj 350 522 pack f f;
+#X obj 163 478 route 0 1;
+#X text 163 578 👆 musical content in staves. subpatches linked internally
+with lvn.stave-link., f 19;
+#N canvas 788 24 690 714 stave1 0;
+#X obj 180 83 inlet;
+#X floatatom 315 558 17 0 0 0 - - -, f 17;
+#X floatatom 39 219 5 0 0 0 - - -, f 5;
+#X text 34 701 👆send note/velocity/duration can send note offs to
+flush, f 29;
+#X obj 315 586 / 100;
+#X obj 315 621 sub/fmod 1;
+#X obj 41 134 lvn.stave-link, f 18;
+#X msg 39 585 54 127 1000;
+#X obj 38 623 cyclone/prepend notes;
+#X obj 314 667 cyclone/prepend playhead;
+#X text 234 83 👈 links with hyperstave, f 26;
+#X text 44 248 distance 0 is on target 1 is on neighbouring stave 0.5
+is borderline, f 26;
+#X floatatom 258 266 5 0 0 0 - - -, f 5;
+#X obj 369 266 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 39 186 route distance relativepos active, f 53;
+#X obj 313 704 ggee/sl to-parent;
+#X obj 37 672 ggee/sl to-parent;
+#X obj 40 88 ggee/rl to-parent;
+#X connect 0 0 6 1;
+#X connect 1 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 14 0;
+#X connect 7 0 8 0;
+#X connect 8 0 16 0;
+#X connect 9 0 15 0;
+#X connect 12 0 9 0;
+#X connect 14 0 2 0;
+#X connect 14 1 12 0;
+#X connect 14 2 13 0;
+#X connect 17 0 6 0;
+#X restore 194 513 pd stave1;
+#X text 127 59 suite dependencies: cyclone;
+#X text 127 79 example dependencies: ggee;
+#X text 127 19 an n-dimensional dynamic music composition framework
+, f 54;
+#X obj 128 42 cnv 5 380 5 empty empty empty 20 12 0 14 #fcfcfc #404040
+0;
+#X obj 128 44 cnv 5 380 5 empty empty empty 20 12 0 14 #fc8080 #404040
+0;
+#X obj 488 333 r hues;
+#X obj 491 390 print;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 10 0;
+#X connect 3 1 10 1;
+#X connect 8 0 11 0;
+#X connect 8 1 3 0;
 #X connect 10 0 4 0;
-#X connect 12 0 3 0;
+#X connect 11 0 5 0;
+#X connect 11 1 13 0;
+#X connect 19 0 20 0;
