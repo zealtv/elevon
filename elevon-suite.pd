@@ -1,9 +1,9 @@
-#N canvas -7 0 611 786 12;
+#N canvas 761 0 784 786 12;
 #X floatatom 163 217 15 0 0 0 - - -, f 15;
 #X obj 163 242 / 100;
 #X obj 350 510 makenote;
 #X obj 350 578 print notes;
-#N canvas 740 20 740 755 stave0 0;
+#N canvas 761 0 768 803 stave0 1;
 #X obj 234 67 inlet;
 #X floatatom 252 354 17 0 0 0 - - -, f 17;
 #X floatatom 95 211 5 0 0 0 - - -, f 5;
@@ -98,17 +98,19 @@ is borderline, f 24;
 0;
 #X obj 11 57 cnv 5 380 5 empty empty empty 20 12 0 14 #fc8080 #404040
 0;
-#X obj 17 19 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #ff9999
+#X obj 17 19 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #fc9898
 #000000 0;
 #X coords 0 -1 1 1 400 115 2 2 2;
 #X restore 13 7 pd banner;
 #X obj 435 68 spigot;
 #X obj 486 37 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 333 289 tgl 15 0 empty empty empty 17 7 0 10 #ff8080 #000000
-#000000 1 1;
+#X obj 333 289 tgl 15 0 empty empty empty 17 7 0 10 #fc8080 #000000
+#000000 0 1;
 #X text 415 237 👈 start coms with staves connect should send queries
 down the tree to establish coords, f 14;
+#X obj 612 276 lvn.n.hyperstave 8;
+#X text 604 246 dynamic hyperstave in progress...;
 #X connect 0 0 1 0;
 #X connect 1 0 7 0;
 #X connect 2 0 9 0;
