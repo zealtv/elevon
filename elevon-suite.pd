@@ -1,4 +1,4 @@
-#N canvas -7 0 1064 786 12;
+#N canvas -7 0 611 786 12;
 #X floatatom 163 217 15 0 0 0 - - -, f 15;
 #X obj 163 242 / 100;
 #X obj 350 510 makenote;
@@ -20,7 +20,7 @@ to flush, f 29;
 is borderline, f 24;
 #X floatatom 222 218 5 0 0 0 - - -, f 5;
 #X obj 349 216 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1 1;
+#000000 0 1;
 #X obj 95 162 route distance relativepos active, f 55;
 #X obj 96 66 ggee/rl to-parent;
 #X obj 252 508 ggee/sl to-parent;
@@ -87,7 +87,6 @@ is borderline, f 24;
 #X obj 435 35 r hues;
 #X obj 435 101 print;
 #X msg 350 238 connect;
-#X text 415 237 👈 start coms with staves, f 14;
 #N canvas 544 239 450 301 banner 0;
 #X obj 6 6 cnv 15 392 107 empty empty empty 20 12 0 14 #c0c0c0 #404040
 0;
@@ -106,8 +105,10 @@ is borderline, f 24;
 #X obj 435 68 spigot;
 #X obj 486 37 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 389 288 tgl 15 0 empty empty empty 17 7 0 10 #ff8080 #ffffff
-#000000 0 1;
+#X obj 333 289 tgl 15 0 empty empty empty 17 7 0 10 #ff8080 #000000
+#000000 1 1;
+#X text 415 237 👈 start coms with staves connect should send queries
+down the tree to establish coords, f 14;
 #X connect 0 0 1 0;
 #X connect 1 0 7 0;
 #X connect 2 0 9 0;
@@ -117,7 +118,7 @@ is borderline, f 24;
 #X connect 9 0 3 0;
 #X connect 10 0 4 0;
 #X connect 10 1 12 0;
-#X connect 13 0 18 0;
+#X connect 13 0 17 0;
 #X connect 15 0 7 1;
-#X connect 18 0 14 0;
-#X connect 19 0 18 1;
+#X connect 17 0 14 0;
+#X connect 18 0 17 1;
