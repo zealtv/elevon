@@ -1,9 +1,40 @@
-#N canvas 683 49 683 694 12;
+#N canvas 0 21 1366 722 12;
 #X floatatom 285 211 15 0 0 0 - - -, f 15;
 #X obj 285 236 / 100;
 #X obj 471 557 makenote;
 #X obj 471 625 print notes;
-#N canvas 683 49 683 719 stave0 0;
+#X text 285 142 📈👇 map position (or other things) to hue, f
+17;
+#X obj 13 126 lvn.telemetry;
+#X text 492 522 👈 note \, vel \, duration, f 22;
+#X obj 471 589 pack f f;
+#X obj 284 557 route 0 1, f 20;
+#X obj 435 35 r hues;
+#X obj 435 101 print;
+#X msg 472 212 connect;
+#N canvas 544 239 450 301 banner 0;
+#X obj 6 6 cnv 15 392 107 empty empty empty 20 12 0 14 #c0c0c0 #404040
+0;
+#X text 200 70 suite dependencies: cyclone;
+#X text 200 90 example dependencies: ggee;
+#X text 10 32 an n-dimensional dynamic music composition framework
+, f 54;
+#X obj 11 55 cnv 5 380 5 empty empty empty 20 12 0 14 #fcfcfc #404040
+0;
+#X obj 11 57 cnv 5 380 5 empty empty empty 20 12 0 14 #fc8080 #404040
+0;
+#X obj 17 19 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #fc9898
+#000000 0;
+#X coords 0 -1 1 1 400 115 2 2 2;
+#X restore 13 7 pd banner;
+#X obj 435 68 spigot;
+#X obj 486 37 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 538 212 👈 start coms with staves connect should send queries
+down the tree to establish coords, f 14;
+#X text 150 536 link with staves👉, f 19;
+#X obj 284 271 lvn.hyperstave 12;
+#N canvas 683 49 683 719 stave1 0;
 #X obj 40 10 inlet;
 #X floatatom 225 181 5 0 0 0 - - -, f 5;
 #X text 423 508 👆send note/velocity/duration can send note offs
@@ -45,87 +76,43 @@ to flush, f 29;
 #X connect 17 0 22 1;
 #X connect 22 0 18 0;
 #X connect 22 1 7 0;
-#X restore 284 598 pd stave0;
-#X text 285 142 📈👇 map position (or other things) to hue, f
-17;
-#X obj 13 126 lvn.telemetry;
-#X text 492 522 👈 note \, vel \, duration, f 22;
-#X obj 471 589 pack f f;
-#X obj 284 557 route 0 1, f 20;
-#X text 284 627 👆 musical content in staves. subpatches linked internally
-with lvn.stave-link., f 19;
-#N canvas 341 49 683 719 stave1 0;
-#X obj 40 20 inlet;
-#X floatatom 229 194 5 0 0 0 - - -, f 5;
-#X text 631 486 👆send note/velocity/duration can send note offs
-to flush, f 29;
-#X msg 636 370 54 127 1000;
-#X obj 635 408 cyclone/prepend notes;
-#X obj 356 446 cyclone/prepend playhead;
-#X text 80 20 👈 links with hyperstave, f 26;
-#X text 216 254 distance 0 is on target 1 is on neighbouring stave
+#X restore 354 628 pd stave1;
+#X floatatom 470 911 5 0 0 0 - - -, f 5;
+#X text 405 941 distance 0 is on target 1 is on neighbouring stave
 0.5 is borderline, f 24;
-#X floatatom 356 201 5 0 0 0 - - -, f 5;
-#X obj 483 199 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X floatatom 597 908 5 0 0 0 - - -, f 5;
+#X obj 724 896 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 229 145 route distance relativepos active, f 55;
-#X obj 490 302 cyclone/prepend button;
-#X obj 324 602 canvasinfo;
-#X msg 324 565 print;
-#X obj 356 491 sl to-parent;
-#X obj 634 457 sl to-parent;
-#X obj 490 347 sl to-parent;
-#X obj 280 40 rl to-parent;
-#X obj 41 83 lvn.stave, f 27;
-#X connect 0 0 18 0;
-#X connect 3 0 4 0;
-#X connect 4 0 15 0;
-#X connect 5 0 14 0;
-#X connect 8 0 5 0;
-#X connect 9 0 11 0;
-#X connect 10 0 1 0;
-#X connect 10 1 8 0;
-#X connect 10 2 9 0;
-#X connect 11 0 16 0;
-#X connect 13 0 12 0;
-#X connect 17 0 18 1;
-#X connect 18 1 10 0;
-#X restore 359 597 pd stave1;
-#X obj 435 35 r hues;
-#X obj 435 101 print;
-#X msg 472 212 connect;
-#N canvas 544 239 450 301 banner 0;
-#X obj 6 6 cnv 15 392 107 empty empty empty 20 12 0 14 #c0c0c0 #404040
-0;
-#X text 200 70 suite dependencies: cyclone;
-#X text 200 90 example dependencies: ggee;
-#X text 10 32 an n-dimensional dynamic music composition framework
-, f 54;
-#X obj 11 55 cnv 5 380 5 empty empty empty 20 12 0 14 #fcfcfc #404040
-0;
-#X obj 11 57 cnv 5 380 5 empty empty empty 20 12 0 14 #fc8080 #404040
-0;
-#X obj 17 19 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #fc9898
-#000000 0;
-#X coords 0 -1 1 1 400 115 2 2 2;
-#X restore 13 7 pd banner;
-#X obj 435 68 spigot;
-#X obj 486 37 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X text 538 212 👈 start coms with staves connect should send queries
-down the tree to establish coords, f 14;
-#X text 150 536 link with staves👉, f 19;
-#X obj 284 271 lvn.hyperstave 12;
+#X obj 470 862 route distance relativepos active, f 55;
+#X msg 724 941 button \$1;
+#X msg 597 945 playhead \$1;
+#X obj 597 981 sl to-parent;
+#X obj 726 981 sl to-parent;
+#X obj 465 770 rl to-parent;
+#X text 565 770 👈 send up to parent, f 26;
+#X text 285 870 👈 TODO link with child, f 19;
+#X obj 280 810 lvn.stave, f 26;
+#X text 354 657 👆 containing staves in subpatches is a good idea
+for multiple dimensions, f 19;
 #X connect 0 0 1 0;
-#X connect 1 0 20 0;
-#X connect 2 0 8 0;
-#X connect 2 1 8 1;
-#X connect 8 0 3 0;
-#X connect 9 0 4 0;
-#X connect 9 1 11 0;
-#X connect 12 0 16 0;
-#X connect 14 0 20 1;
-#X connect 16 0 13 0;
-#X connect 17 0 16 1;
-#X connect 20 0 9 0;
-#X connect 20 1 2 0;
+#X connect 1 0 17 0;
+#X connect 2 0 7 0;
+#X connect 2 1 7 1;
+#X connect 7 0 3 0;
+#X connect 8 0 31 0;
+#X connect 8 1 18 0;
+#X connect 9 0 13 0;
+#X connect 11 0 17 1;
+#X connect 13 0 10 0;
+#X connect 14 0 13 1;
+#X connect 17 0 8 0;
+#X connect 17 1 2 0;
+#X connect 21 0 25 0;
+#X connect 22 0 24 0;
+#X connect 23 0 19 0;
+#X connect 23 1 21 0;
+#X connect 23 2 22 0;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 28 0 31 1;
+#X connect 31 1 23 0;
