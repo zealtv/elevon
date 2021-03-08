@@ -7,7 +7,7 @@
 #X obj 454 167 s \$0id;
 #X obj 543 167 s \$0stave;
 #X obj 1539 402 r \$0id;
-#X obj 1305 190 r \$0stave;
+#X obj 1305 220 r \$0stave;
 #X obj 633 167 s \$0ready;
 #X obj 484 36 inlet h-stave, f 7;
 #X obj 852 606 -;
@@ -41,13 +41,13 @@ of the 5th stave away., f 27;
 #X obj 875 175 s \$0hue;
 #X obj 1056 174 cyclone/prepend notes;
 #X msg 1538 437 symbol hyperstave\$1;
-#X obj 1262 311 s \$0-to-hyperstave;
+#X obj 1262 341 s \$0-to-hyperstave;
 #X obj 1510 370 r \$0-to-hyperstave;
 #X obj 1056 210 s \$0-to-hyperstave;
-#X text 1386 306 👈forwards normalised float to stave position indicators
+#X text 1386 336 👈forwards normalised float to stave position indicators
 , f 22;
-#X obj 1262 276 cyclone/prepend playheads;
-#X obj 1262 218 pack f f;
+#X obj 1262 306 cyclone/prepend playheads;
+#X obj 1262 248 pack f f;
 #X text 1054 237 👈forwards notes to hyperstave note bus, f 22;
 #X obj 790 320 outlet;
 #X text 1226 19 👈messages from stave, f 27;
@@ -55,8 +55,8 @@ of the 5th stave away., f 27;
 #X obj 712 167 s \$0numstaves;
 #X obj 1211 539 * 1;
 #X obj 844 544 * 1;
-#X obj 1266 156 * 127;
-#X text 1306 144 💩this is a kludge as the sliders have a range 0
+#X obj 1266 186 * 127;
+#X text 1306 174 💩this is a kludge as the sliders have a range 0
 127, f 22;
 #X floatatom 1299 525 5 0 0 0 - - -, f 5;
 #X floatatom 1325 594 5 0 0 0 - - -, f 5;
@@ -64,25 +64,25 @@ of the 5th stave away., f 27;
 #X obj 1259 664 r \$0numstaves;
 #X obj 983 600 r \$0numstaves;
 #X obj 865 483 r \$0numstaves;
-#X obj 1262 121 clip 0 1;
+#X obj 1262 151 clip 0 1;
 #X obj 1055 58 route notes playhead button, f 104;
-#X obj 1520 118 r \$0stave;
-#X obj 1477 239 s \$0-to-hyperstave;
-#X text 1594 236 👈forwards normalised float to stave position indicators
+#X obj 1510 138 r \$0stave;
+#X obj 1467 259 s \$0-to-hyperstave;
+#X text 1584 256 👈forwards normalised float to stave position indicators
 , f 22;
-#X obj 1477 146 pack f f;
-#X obj 1477 204 cyclone/prepend buttons;
-#X obj 1262 244 cyclone/zl rev;
-#X obj 1477 172 cyclone/zl rev;
+#X obj 1467 166 pack f f;
+#X obj 1467 224 cyclone/prepend buttons;
+#X obj 1262 274 cyclone/zl rev;
+#X obj 1467 192 cyclone/zl rev;
 #X msg 848 754 distance \$1;
 #X msg 1211 769 relativepos \$1;
 #X msg 1424 776 active \$1;
-#X obj 40 20 hsl 128 15 0 1 0 0 empty \$0thisstaveslider empty -2 -8
-0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 180 20 tgl 15 0 empty \$0thisstavebutton empty 17 7 0 10 #fcfcfc
-#000000 #000000 0 1;
+#X obj 40 20 hsl 128 15 0 1 0 0 \$0fromthisstaveslider \$0thisstaveslider
+empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 180 20 tgl 15 0 \$0fromthisstavebutton \$0thisstavebutton empty
+17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 620 320 outlet child-link;
-#X obj 1481 90 s \$0thisstavebutton;
+#X obj 1471 90 s \$0thisstavebutton;
 #X obj 130 640 s \$0highlight-cnv;
 #X text 1534 474 👈 sends to parent hyperstave, f 34;
 #X text 500 310 messages to child hyperstave 👉, f 18;
@@ -108,7 +108,7 @@ of the 5th stave away., f 27;
 #X obj 131 403 abs;
 #X text 300 350 🔪 cut for performance;
 #X obj 132 433 * 40;
-#X obj 1280 90 s \$0thisstaveslider;
+#X obj 1260 90 s \$0thisstaveslider;
 #X obj 485 89 route id stave ready numstaves connect, f 45;
 #X obj 720 130 s \$0coords;
 #X obj 860 250 r \$0coords;
@@ -120,6 +120,8 @@ of the 5th stave away., f 27;
 #000000 0 1;
 #X msg 132 525 18;
 #X msg 410 567 color 0 -1 -1;
+#X obj 1260 115 r \$0fromthisstaveslider;
+#X obj 1471 115 r \$0fromthisstavebutton;
 #X connect 5 0 36 0;
 #X connect 6 0 42 1;
 #X connect 8 0 100 0;
@@ -161,9 +163,7 @@ of the 5th stave away., f 27;
 #X connect 57 0 49 1;
 #X connect 58 0 50 0;
 #X connect 59 0 35 0;
-#X connect 59 1 58 0;
 #X connect 59 1 99 0;
-#X connect 59 2 63 0;
 #X connect 59 2 73 0;
 #X connect 60 0 63 1;
 #X connect 63 0 66 0;
@@ -204,4 +204,6 @@ of the 5th stave away., f 27;
 #X connect 108 0 88 0;
 #X connect 109 0 85 0;
 #X connect 109 0 84 0;
+#X connect 110 0 58 0;
+#X connect 111 0 63 0;
 #X coords 0 -1 1 1 194 32 2 10 12;
