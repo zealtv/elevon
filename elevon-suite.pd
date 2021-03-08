@@ -1,16 +1,16 @@
-#N canvas 0 21 1366 722 12;
-#X floatatom 540 79 15 0 0 0 - - -, f 15;
-#X obj 540 104 / 100;
-#X obj 756 465 makenote;
-#X obj 756 533 print notes;
-#X text 540 10 📈👇 map position (or other things) to hue, f 17
-;
-#X obj 0 120 lvn.telemetry;
-#X text 777 430 👈 note \, vel \, duration, f 22;
-#X obj 756 497 pack f f;
-#X obj 539 465 route 0 1, f 20;
-#X obj 180 160 r hues;
-#X obj 180 226 print;
+#N canvas -7 0 784 786 12;
+#X floatatom 170 209 15 0 0 0 - - -, f 15;
+#X obj 170 234 / 100;
+#X obj 436 615 makenote;
+#X obj 436 683 print notes;
+#X text 170 140 📈👇 map position (or other things) to hue, f
+17;
+#X obj 10 130 lvn.telemetry;
+#X text 428 562 👈 note \, vel \, duration, f 22;
+#X obj 436 647 pack f f;
+#X obj 169 595 route 0 1, f 20;
+#X obj 450 23 r hues;
+#X obj 450 89 print;
 #N canvas 544 239 450 301 banner 0;
 #X obj 6 6 cnv 15 392 107 empty empty empty 20 12 0 14 #c0c0c0 #404040
 0;
@@ -25,13 +25,13 @@
 #X obj 17 19 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #fc9898
 #000000 0;
 #X coords 0 -1 1 1 400 115 2 2 2;
-#X restore 0 0 pd banner;
-#X obj 180 193 spigot;
-#X obj 231 162 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X restore 10 10 pd banner;
+#X obj 450 56 spigot;
+#X obj 501 25 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X text 405 444 link with staves👉, f 19;
-#X obj 539 179 lvn.hyperstave 12;
-#N canvas 683 49 683 694 stave1 0;
+#X text 35 574 link with staves👉, f 19;
+#X obj 169 309 lvn.hyperstave 12;
+#N canvas -7 0 784 786 stave1 0;
 #X obj 40 10 inlet;
 #X floatatom 225 181 5 0 0 0 - - -, f 5;
 #X text 423 508 👆send note/velocity/duration can send note offs
@@ -41,7 +41,7 @@ to flush, f 29;
 0.5 is borderline, f 24;
 #X floatatom 352 178 5 0 0 0 - - -, f 5;
 #X obj 479 166 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#000000 1 1;
 #X msg 479 211 button \$1;
 #X msg 352 215 playhead \$1;
 #X obj 426 397 list prepend notes;
@@ -87,51 +87,54 @@ to flush, f 29;
 #X connect 25 1 27 0;
 #X connect 26 0 28 0;
 #X connect 27 0 26 0;
-#X restore 599 506 pd stave1;
-#X floatatom 320 801 5 0 0 0 - - -, f 5;
-#X text 130 780 distance 0 is on target 1 is on neighbouring stave
-0.5 is borderline, f 24;
-#X floatatom 407 798 5 0 0 0 - - -, f 5;
-#X obj 494 796 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1 1;
-#X obj 130 700 lvn.stave, f 26;
-#X text 560 530 👆 containing staves in subpatches is a good idea
-for multiple dimensions, f 19;
-#X msg 687 130 connect 0;
-#X obj 320 752 route distance relativepos active coords, f 50;
-#X obj 580 790 cyclone/prepend set;
-#X msg 580 820 0 0;
-#X text 350 690 👈 control stave, f 26;
-#X msg 539 142 hue \$1;
-#X text 763 130 👈 start coms with staves, f 14;
-#X msg 540 650 notes 54 127 1000;
-#X floatatom 320 623 5 0 0 0 - - -, f 5;
-#X obj 447 611 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X restore 229 636 pd stave1;
+#X floatatom 200 931 5 0 0 0 - - -, f 5;
+#X floatatom 287 928 5 0 0 0 - - -, f 5;
+#X obj 374 926 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X msg 447 656 button \$1;
-#X msg 320 660 playhead \$1;
+#X obj 170 830 lvn.stave, f 26;
+#X text 231 658 👆 containing staves in subpatches is a good idea
+for multiple dimensions, f 19;
+#X msg 277 260 connect 0;
+#X obj 200 882 route distance relativepos active coords, f 50;
+#X obj 460 920 cyclone/prepend set;
+#X msg 460 950 0 0;
+#X text 390 820 👈 control stave, f 26;
+#X msg 169 272 hue \$1;
+#X msg 410 780 notes 54 127 1000;
+#X floatatom 210 751 5 0 0 0 - - -, f 5;
+#X obj 317 741 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 317 786 button \$1;
+#X msg 210 788 playhead \$1;
+#X obj 407 590 t b a;
+#X obj 405 622 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 353 260 👈 update connections with staves, f 21;
 #X connect 0 0 1 0;
-#X connect 1 0 28 0;
+#X connect 1 0 27 0;
 #X connect 2 0 7 0;
 #X connect 2 1 7 1;
 #X connect 7 0 3 0;
-#X connect 8 0 21 0;
+#X connect 8 0 20 0;
 #X connect 8 1 16 0;
 #X connect 9 0 12 0;
 #X connect 12 0 10 0;
 #X connect 13 0 12 1;
 #X connect 15 0 8 0;
-#X connect 15 1 2 0;
-#X connect 21 1 24 0;
-#X connect 23 0 15 0;
-#X connect 24 0 17 0;
-#X connect 24 1 19 0;
-#X connect 24 2 20 0;
-#X connect 24 3 25 0;
-#X connect 25 0 26 0;
-#X connect 28 0 15 0;
-#X connect 30 0 21 1;
-#X connect 31 0 34 0;
-#X connect 32 0 33 0;
-#X connect 33 0 21 1;
-#X connect 34 0 21 1;
+#X connect 15 1 33 0;
+#X connect 20 1 23 0;
+#X connect 22 0 15 0;
+#X connect 23 0 17 0;
+#X connect 23 1 18 0;
+#X connect 23 2 19 0;
+#X connect 23 3 24 0;
+#X connect 24 0 25 0;
+#X connect 27 0 15 0;
+#X connect 28 0 20 1;
+#X connect 29 0 32 0;
+#X connect 30 0 31 0;
+#X connect 31 0 20 1;
+#X connect 32 0 20 1;
+#X connect 33 0 34 0;
+#X connect 33 1 2 0;
