@@ -1,0 +1,112 @@
+#N canvas -7 0 1553 794 10;
+#X obj 1042 127 s \$0-rewind;
+#X obj 1042 92 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 862 88 del;
+#X text 294 85 a better approach - figure out our smallest tick 32nds?
+count them use a delay object to get triples divide and mod for bars
+\, beats \, etc;
+#X text 914 93 bpm = 120;
+#X text 986 95 4/4;
+#X text 833 158 pulse;
+#X msg 795 159 120;
+#X obj 768 263 metro;
+#X obj 795 225 expr 60000/$f1;
+#X obj 800 296 r \$0-rewind;
+#X obj 1129 561 del;
+#X text 828 193 16ths as ticks;
+#X obj 1166 601 del;
+#X obj 766 89 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 768 122 t f b;
+#X obj 769 323 counter;
+#X floatatom 650 388 5 0 0 0 - - -, f 5;
+#X obj 794 190 * 4;
+#X floatatom 934 470 5 0 0 0 - - -, f 5;
+#X obj 935 379 i;
+#X obj 988 383 / 4;
+#X floatatom 988 472 5 0 0 0 - - -, f 5;
+#X obj 988 413 i;
+#X obj 935 353 / 4;
+#X floatatom 869 475 5 0 0 0 - - -, f 5;
+#X obj 870 414 i;
+#X obj 870 358 / 2;
+#X obj 871 444 % 8;
+#X floatatom 704 417 5 0 0 0 - - -, f 5;
+#X obj 706 386 % 16;
+#X obj 873 500 sel 0;
+#X obj 858 552 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 937 509 sel 0;
+#X obj 922 561 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1006 548 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 695 470 sel 0;
+#X obj 690 512 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 988 496 bang;
+#X obj 991 444 change;
+#X obj 538 435 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 921 407 change;
+#X obj 863 386 change;
+#X obj 932 433 % 4;
+#X msg 786 520 bang;
+#X obj 1078 245 expr 60000/$f1;
+#X obj 980 697 counter;
+#X floatatom 739 418 5 0 0 0 - - -, f 5;
+#X obj 627 602 sel 0;
+#X obj 612 654 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1075 665 r \$0-rewind;
+#X obj 1077 210 * 6;
+#X obj 979 723 % 16;
+#X connect 1 0 0 0;
+#X connect 7 0 18 0;
+#X connect 7 0 51 0;
+#X connect 8 0 16 0;
+#X connect 9 0 8 1;
+#X connect 10 0 16 2;
+#X connect 11 0 13 0;
+#X connect 11 0 46 0;
+#X connect 13 0 46 0;
+#X connect 14 0 15 0;
+#X connect 15 0 8 0;
+#X connect 15 1 7 0;
+#X connect 16 0 17 0;
+#X connect 16 0 24 0;
+#X connect 16 0 27 0;
+#X connect 16 0 30 0;
+#X connect 18 0 9 0;
+#X connect 19 0 33 0;
+#X connect 20 0 41 0;
+#X connect 21 0 23 0;
+#X connect 22 0 38 0;
+#X connect 23 0 39 0;
+#X connect 24 0 20 0;
+#X connect 24 0 21 0;
+#X connect 25 0 31 0;
+#X connect 26 0 28 0;
+#X connect 26 0 44 0;
+#X connect 27 0 42 0;
+#X connect 28 0 25 0;
+#X connect 29 0 36 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
+#X connect 33 0 34 0;
+#X connect 36 0 37 0;
+#X connect 38 0 35 0;
+#X connect 39 0 22 0;
+#X connect 41 0 43 0;
+#X connect 42 0 26 0;
+#X connect 43 0 19 0;
+#X connect 44 0 46 0;
+#X connect 45 0 11 1;
+#X connect 45 0 13 1;
+#X connect 46 0 52 0;
+#X connect 47 0 48 0;
+#X connect 48 0 49 0;
+#X connect 50 0 46 2;
+#X connect 51 0 45 0;
+#X connect 52 0 47 0;
