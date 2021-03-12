@@ -1,0 +1,48 @@
+#N canvas 384 0 770 780 10;
+#X obj 39 33 cnv 15 131 40 empty empty empty 20 12 0 14 #c0c0c0 #404040
+0;
+#X msg 303 247 label \$1;
+#X obj 298 147 sel 0 1;
+#X obj 201 415 s \$0-indicator;
+#X msg 272 197 symbol 😐;
+#X obj 408 71 sel 0 1 2 3 4 5 6 7, f 42;
+#X obj 304 101 r play;
+#X obj 408 38 r 8ths;
+#X obj 39 33 cnv 15 40 40 empty \$0-indicator 😀 0 15 0 30 #ff9997
+#000000 0;
+#X msg 464 389 color -1.6751e+07 -1 -1;
+#X msg 651 390 color -1.67772e+07 -1 -1;
+#X msg 451 357 color -1.00925e+07 -1 -1;
+#X obj 420 485 s \$0-indicator;
+#X msg 376 176 symbol 😁;
+#X msg 517 178 symbol 😁;
+#X msg 586 177 symbol 😀;
+#X msg 446 175 symbol 😄;
+#X obj 85 52 cnv 3 80 3 empty \$0cvs0 -=ELEVON=- -2 -2 0 14 #fc9898
+#000000 0;
+#X msg 185 325 color 20 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 2 0 18 0;
+#X connect 4 0 1 0;
+#X connect 5 0 13 0;
+#X connect 5 0 11 0;
+#X connect 5 1 16 0;
+#X connect 5 2 14 0;
+#X connect 5 3 15 0;
+#X connect 5 4 13 0;
+#X connect 5 4 9 0;
+#X connect 5 5 16 0;
+#X connect 5 6 14 0;
+#X connect 5 7 15 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 0;
+#X connect 9 0 12 0;
+#X connect 11 0 12 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 18 0 3 0;
+#X coords 0 -1 1 1 135 44 2 37 31;
+#X scroll 1;
