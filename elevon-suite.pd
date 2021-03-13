@@ -1,4 +1,4 @@
-#N canvas -7 0 1005 786 12;
+#N canvas 0 0 1538 780 12;
 #X floatatom 30 179 15 0 0 0 - - -, f 15;
 #X obj 30 204 / 100;
 #X obj 219 568 makenote;
@@ -111,8 +111,9 @@ for multiple dimensions, f 20;
 #X obj 648 189 print;
 #X obj 566 246 lvn.dancer;
 #X text 625 328 🎹lvn.midiclip;
-#X obj 622 355 lvn.midiclip;
-#X obj 623 452 noteout;
+#X obj 622 355 lvn.midiclip sym assets/upsidedown.mid flt 8 sym symbol
+flt 0 flt 0;
+#X obj 622 474 noteout;
 #X connect 0 0 1 0;
 #X connect 1 0 21 0;
 #X connect 2 0 5 0;
