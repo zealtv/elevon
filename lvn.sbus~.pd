@@ -1,17 +1,17 @@
-#N canvas 328 140 1209 446 12;
+#N canvas -8 -8 1538 787 12;
 #X obj 110 60 inlet~;
 #X obj 280 60 inlet~;
 #X obj 120 250 outlet~;
 #X obj 280 250 outlet~;
-#X obj 440 60 hsl 128 15 0 5 0 0 \$0-from-amp \$0-to-amp amp -2 -8
-0 10 #fcfcfc #000000 #000000 7500 1;
+#X obj 440 60 hsl 128 15 0 2 0 0 \$0-from-amp \$0-to-amp amp -2 -8
+0 10 #fcfcfc #000000 #000000 2450 1;
 #X msg 440 100 1;
 #X obj 140 150 *~;
 #X obj 310 160 *~;
 #X obj 580 60 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
-#X obj 600 214 cnv 15 580 387 empty empty empty 20 12 0 14 #e0e0e0
-#404040 0;
+#X obj 930 40 cnv 15 580 387 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
 #N canvas 36 76 1346 690 numbercruncher 0;
 #X obj 95 72 inlet;
 #X obj 142 288 loadbang;
@@ -60,21 +60,21 @@ saver;
 #X connect 20 1 21 1;
 #X connect 21 0 2 0;
 #X connect 22 0 20 0;
-#X restore 729 401 pd numbercruncher;
-#X obj 729 522 iemguts/canvasargs;
-#X obj 729 322 iemguts/canvasargs;
-#X obj 636 232 loadbang;
-#X obj 729 370 list trim;
-#X obj 729 347 list;
-#X obj 636 276 t b b, f 16;
-#X msg 636 359 1;
-#X obj 729 477 spigot;
-#X text 729 547 v1.3 \, 2015 Liam Goodacre \, liam.goodacre@gmail.com
+#X restore 1059 227 pd numbercruncher;
+#X obj 1059 348 iemguts/canvasargs;
+#X obj 1059 148 iemguts/canvasargs;
+#X obj 966 58 loadbang;
+#X obj 1059 196 list trim;
+#X obj 1059 173 list;
+#X obj 966 102 t b b, f 16;
+#X msg 966 185 1;
+#X obj 1059 303 spigot;
+#X text 1059 373 v1.3 \, 2015 Liam Goodacre \, liam.goodacre@gmail.com
 ;
-#X text 770 470 This spigot is necessary because if one [canvasargs]
+#X text 1100 296 This spigot is necessary because if one [canvasargs]
 object feeds the creation argument straight into another it will cause
 PD to crash.;
-#X text 796 224 🎰 argument handling 👇;
+#X text 1126 50 🎰 argument handling 👇;
 #X symbolatom 440 30 19 0 0 0 - #0-to-field #0-from-field, f 19;
 #X obj 210 290 r \$0-from-field;
 #X obj 250 360 sprintf set %s-right;
@@ -83,6 +83,17 @@ PD to crash.;
 #X obj 170 60 r \$0-from-amp;
 #X obj 140 190 throw~;
 #X obj 380 250 throw~;
+#X obj 580 320 r \$0-from-amp;
+#X obj 565 445 savestate, f 11;
+#X text 655 445 👈 bangs when parent is saved;
+#X obj 635 475 s \$0-save-state;
+#X obj 565 285 r \$0-save-state;
+#X obj 565 365 f;
+#X obj 560 570 s \$0-to-amp;
+#X obj 565 405 pack f s;
+#X obj 620 370 r \$0-from-field;
+#X obj 566 510 unpack f s;
+#X obj 630 540 s \$0-to-field;
 #X connect 0 0 2 0;
 #X connect 0 0 6 0;
 #X connect 1 0 3 0;
@@ -106,4 +117,13 @@ PD to crash.;
 #X connect 25 0 28 0;
 #X connect 26 0 7 1;
 #X connect 27 0 6 1;
-#X coords 0 -1 1 1 200 56 2 432 27;
+#X connect 30 0 35 1;
+#X connect 31 0 39 0;
+#X connect 31 1 33 0;
+#X connect 34 0 35 0;
+#X connect 35 0 37 0;
+#X connect 37 0 31 0;
+#X connect 38 0 37 1;
+#X connect 39 0 36 0;
+#X connect 39 1 40 0;
+#X coords 0 -1 1 1 167 56 2 432 27;
