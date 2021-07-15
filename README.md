@@ -8,4 +8,4 @@
 
 ---
 
-elevon is the product of ongoing research.  Expect breaking changes.
+elevon is the product of ongoing research.  Expect breaking changes and opaque usability for the time being.
