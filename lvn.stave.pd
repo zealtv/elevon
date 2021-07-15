@@ -133,7 +133,7 @@ empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 217 477 100;
 #X obj 281 571 s \$0label;
 #X msg 101 372 0;
-#X obj 482 671 sub/rainbowmaker;
+#X obj 482 671 sub.lvn.rainbowmaker;
 #X connect 7 0 38 0;
 #X connect 8 0 44 1;
 #X connect 10 0 101 0;

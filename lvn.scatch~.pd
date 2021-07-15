@@ -1,7 +1,0 @@
-#N canvas 0 0 450 300 12;
-#X obj 60 120 catch~ \$1-left;
-#X obj 260 120 catch~ \$1-right;
-#X obj 60 210 outlet~;
-#X obj 260 210 outlet~;
-#X connect 0 0 2 0;
-#X connect 1 0 3 0;

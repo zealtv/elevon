@@ -1,4 +1,4 @@
-#N canvas -8 -8 1554 795 10;
+#N canvas 0 0 1554 795 10;
 #X declare -lib cyclone;
 #X obj 15 15 cnv 15 100 357 empty empty empty 10 10 0 14 #c0c0c0 #fcfcfc
 0;
@@ -65,7 +65,7 @@ ay az rvx rvy rvz, f 17;
 #X floatatom 50 321 10 0 0 0 rvx rvx -, f 10;
 #X floatatom 50 337 10 0 0 0 rvy rvy -, f 10;
 #X floatatom 50 353 10 0 0 0 rvz rvz -, f 10;
-#X obj 436 278 sub/rainbowmaker;
+#X obj 436 278 sub.lvn.rainbowmaker;
 #X connect 7 0 8 0;
 #X connect 8 0 6 0;
 #X connect 8 1 6 1;
