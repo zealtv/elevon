@@ -1,0 +1,18 @@
+#N canvas 0 23 840 491 10;
+#X msg 120 170 name;
+#X obj 120 140 loadbang;
+#X obj 180 140 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 120 200 canvasinfo 1;
+#X obj 100 100 inlet~;
+#X obj 120 230 list append \$1;
+#X text 220 230 canvas-name object-argument;
+#X obj 100 300 throw~;
+#X msg 120 260 set lvn-localsignal-\$1-\$2;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 8 0 7 0;
